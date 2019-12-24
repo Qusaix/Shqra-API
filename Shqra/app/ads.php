@@ -4,7 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ads extends Model
+class Ads extends Model
 {
-    //
+    public function user()
+    {
+        $this->hasOne(User::class);
+    }
 }
