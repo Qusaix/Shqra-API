@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use JWTAuth;
+use App\User;
 
 
 class AuthController extends Controller
@@ -81,5 +82,20 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
+    }
+
+    public function update($id)
+    {
+        $user = User::find($id);
+        $user->username = $request->username;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->zip_code = $request->zip_code;
+        $user->save();
+        
+    return response()->json([
+        'updated'=>'User Was Updated'
+    ],200);
+
     }
 }
