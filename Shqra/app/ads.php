@@ -10,4 +10,17 @@ class Ads extends Model
     {
         $this->hasOne(User::class);
     }
+
+    public function category()
+    {
+        $this->hasOne(Categores::class);
+    }
+
+    public function post()
+    {
+        $this->hasOne(Post::class);
+    }
+
+
+
 }
