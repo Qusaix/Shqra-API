@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use JWTAuth;
+
 
 class AuthController extends Controller
 {
@@ -25,10 +28,10 @@ class AuthController extends Controller
     {
         $credentials = request(['email', 'password']);
 
-        if (! $token = auth()->guard('api')->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401); 
+        if ($token = JWTAuth::attempt($credentials)) {
+            return $this->respondWithToken($token);
         }
-
+        return response()->json(['error' => $token], 401);
         return $this->respondWithToken($token);
     }
 
@@ -76,7 +79,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
     }
 }
