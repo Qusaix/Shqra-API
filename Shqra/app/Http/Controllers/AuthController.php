@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use JWTAuth;
 use App\User;
+use Illuminate\Http\Request;
 
 
 class AuthController extends Controller
@@ -33,7 +34,6 @@ class AuthController extends Controller
             return $this->respondWithToken($token);
         }
         return response()->json(['error' => $token], 401);
-        return $this->respondWithToken($token);
     }
 
     /**
@@ -41,8 +41,9 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function me()
+    public function me(Request $request)
     {
+     # return $token = JWTAuth::parseToken()->authenticate();
         return response()->json(auth()->user());
     }
 

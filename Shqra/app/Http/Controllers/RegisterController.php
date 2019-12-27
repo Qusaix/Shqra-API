@@ -12,6 +12,7 @@ class RegisterController extends Controller
 {
     protected function create(Request $data)
     {
+        
         $user = new User;
         $user->name = $data->name;
         $user->email = $data->email;
