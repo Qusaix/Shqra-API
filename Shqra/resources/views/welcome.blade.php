@@ -3,7 +3,7 @@
 <html lang="zxx">
 <head>
 	<meta charset="utf-8">
-	<title>Landy-2</title>
+	<title>App Landing Page</title>
 	
 
 	<meta name="description" content="vCard - is a Premium HTML Responsive Templeate by HTMLmate Team. You can use this for anykind of Personal Issue">
@@ -53,7 +53,7 @@
 											<span class="sr-only">Toggle navigation</span>
 											<i class="ti-menu"></i>
 										</button><!-- /.navbar-toggle collapsed -->
-										<a class="navbar-brand text-uppercase" href="#"><img src="assets/img/logo/logo.png" alt="logo"></a>
+										<a class="navbar-brand text-uppercase" href="#"><img style="max-width:50px;" src="https://web.getmonero.org/press-kit/symbols/monero-symbol-800.png" alt="logo"></a>
 									</div><!-- /.navbar-header -->
 
 									<!-- Collect the nav links, forms, and other content for toggling -->
