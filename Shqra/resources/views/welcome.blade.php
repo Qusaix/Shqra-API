@@ -22,17 +22,17 @@
 	<!-- themify-icon.css -->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
 	<!-- animate.css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
 	<!-- owl-carousel -->
-	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.css')}}">
 	<!-- video.min.css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/video.min.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/video.min.css')}}">
 	<!-- menu style -->
-	<link rel="stylesheet" type="text/css" href="assets/css/menu.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/menu.css')}}">
 	<!-- style -->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css') }}">
 	<!-- responsive.css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
 
 </head>
 
