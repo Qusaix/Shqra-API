@@ -30,7 +30,7 @@
 	<!-- menu style -->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/menu.css')}}">
 	<!-- style -->
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css') }}">
 	<!-- responsive.css -->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
 
@@ -1064,17 +1064,17 @@
 
 
 		<!--  Js Library -->
-		<script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="{{asset('assets/js/jquery-2.1.4.min.js')}}"></script>
 		<!-- Include  for bootstrap -->
-		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 		<!-- Include Owl-carousel -->
-		<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 		<!-- Include OnePagenNav -->
-		<script type="text/javascript" src="assets/js/OnePagenNav.js"></script>
+		<script type="text/javascript" src="{{asset('assets/js/OnePagenNav.js')}}"></script>
 		<!-- Include jquery.magnific-popup.min.js-->
-		<script type="text/javascript" src="assets/js/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
 		<!-- Include script.js-->
-		<script type="text/javascript" src="assets/js/script.js"></script>
+		<script type="text/javascript" src="{{asset('assets/js/script.js')}}"></script>
 
 
 		<!-- Google Maps Script  -->
