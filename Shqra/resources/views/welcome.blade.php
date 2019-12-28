@@ -30,7 +30,7 @@
 	<!-- menu style -->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/menu.css')}}">
 	<!-- style -->
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
 	<!-- responsive.css -->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
 
