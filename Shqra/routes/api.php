@@ -5,7 +5,7 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 
-], function ($router) {
+ ], function ($router) {
 
     Route::post('login', 'AuthController@login');
 
@@ -48,6 +48,17 @@ Route::prefix('post')->group(function(){
 Route::prefix('ads')->group(function(){
 
     Route::post('create','ads@create')->name('create.ads');
+
+});
+
+Route::prefix('orders')->group(function(){
+
+    // See All Routes
+    Route::get('/order/{id}','OrderController@one_order');
+    Route::get('all','OrderController@all_orders');
+
+    //Store
+    Route::post('store','OrderController@store');
 
 });
 

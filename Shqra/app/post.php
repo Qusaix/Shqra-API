@@ -8,6 +8,12 @@ class Post extends Model
 {
     public function subcategore()
     {
-        $this->hasOne(Subcategores::class);
+        return $this->belongsTo(Subcategores::class);
     }
+
+    public function order()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
 }

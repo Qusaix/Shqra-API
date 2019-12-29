@@ -6,10 +6,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Spatie\Permission\Traits\HasRoles;
+
 
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+    use HasRoles;
+
 
     /**
      * The attributes that are mass assignable.
@@ -41,23 +45,23 @@ class User extends Authenticatable implements JWTSubject
 
     public function ads()
     {
-        $this->hasMany(Ads::class);
+        return $this->hasMany(Ads::class);
     }
 
     public function offers()
     {
-        $this->hasMany(Offers::class);
+        return $this->hasMany(Offers::class);
     }
 
     public function favourite()
     {
-        $this->hasMany(Favourite::class);
+        return $this->hasMany(Favourite::class);
     }
 
 
     public function post()
     {
-        $this->hasMany(Post::class);
+        return $this->hasMany(Post::class);
     }
 
     
