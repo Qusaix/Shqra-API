@@ -11,7 +11,7 @@ class CategoreController extends Controller
     {
         $this->middleware('auth:api');
     }
-    
+     
     public function get_all_categores()
     {
         $categore =  Categores::get();
