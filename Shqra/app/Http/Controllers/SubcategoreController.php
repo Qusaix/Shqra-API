@@ -7,6 +7,11 @@ use App\Categores;
 
 class SubcategoreController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+    
     public function get_all_subcategores($id)
     {
         $categore = Categores::find($id);

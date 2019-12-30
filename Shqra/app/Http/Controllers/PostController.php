@@ -8,6 +8,11 @@ use App\Subcategores;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+    
     public function get_all_posts($id)
     {
         $subcategore = Subcategores::find($id);

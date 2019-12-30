@@ -14,8 +14,6 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     
     Route::post('me', 'AuthController@me');
-
-   
     
     
     
@@ -58,11 +56,9 @@ Route::prefix('orders')->group(function(){
     Route::get('all','OrderController@all_orders');
 
     //Store
-    Route::post('store','OrderController@store');
+    Route::post('store','OrderController@store')->middleware('api');
 
 });
-
-
 
 
 

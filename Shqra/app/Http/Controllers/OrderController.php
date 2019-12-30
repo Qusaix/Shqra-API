@@ -9,6 +9,10 @@ use App\Post;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     
     public function one_order($id)
     {
@@ -29,6 +33,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
+      
         $product = Post::find($request->product);
         $user = User::find($request->user);
        
