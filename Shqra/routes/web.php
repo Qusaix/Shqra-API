@@ -14,7 +14,18 @@
 // Route::get('/', function () {
 //     return view('index');
 // });
+Route::get('login',function(){
+    return "You Need Tol login";
+})->name('login');
+
+Route::namespace('dashboard')->middleware('auth')->prefix('dashboard')->group(function(){
+
+    Route::get('/','HomeController@index')->name('home');
+
+
+});
 
 Route::namespace('frontend')->group(function(){
     Route::get('/','HomeController@index')->name('home');
 });
+
