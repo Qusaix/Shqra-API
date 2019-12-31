@@ -16,20 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run() 
     {
-        // $mainCategore = new Categores;
-        // $mainCategore->title = "مطاعم";
-        // $mainCategore->description = "Test";
-        // $mainCategore->save();
-
-        // $subCategore = new Subcategores;
-        // $subCategore->title = "معجنات";
-        // $subCategore->description = "Test";
-        // $subCategore->save();
-
+        
         // $subCategore->categore()->associate($mainCategore);
 
 
-        factory(App\Categores::class, 20)->create();
+        // factory(App\Categores::class, 20)->create();
+        $this->call([
+            CategoreSeeder::class,
+        ]);
         factory(App\Subcategores::class, 20)->create();
 
         
