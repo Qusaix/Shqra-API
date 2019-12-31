@@ -46,6 +46,8 @@ class AuthController extends Controller
      # return $token = JWTAuth::parseToken()->authenticate();
         return response()->json(auth()->user());
     }
+
+    
   
     /**
      * Log the user out (Invalidate the token).

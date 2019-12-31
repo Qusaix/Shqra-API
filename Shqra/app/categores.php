@@ -8,6 +8,6 @@ class Categores extends Model
 {
     public function subcategores()
     {
-        $this->hasMany(Subcategores::class);
+        return $this->hasMany(Subcategores::class);
     }
 }

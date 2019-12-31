@@ -8,6 +8,11 @@ use App\Post;
 
 class AdController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+    
     public function create_ad(Request $request)
     {
         $categore = Categores::find($request->categore);

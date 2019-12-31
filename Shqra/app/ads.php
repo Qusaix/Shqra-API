@@ -8,17 +8,17 @@ class Ads extends Model
 {
     public function user()
     {
-        $this->hasOne(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function category()
     {
-        $this->hasOne(Categores::class);
+        return $this->hasOne(Categores::class);
     }
 
     public function post()
     {
-        $this->hasOne(Post::class);
+        return $this->hasOne(Post::class);
     }
 
 

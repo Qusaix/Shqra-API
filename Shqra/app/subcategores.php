@@ -8,11 +8,11 @@ class Subcategores extends Model
 {
     public function categore()
     {
-        $this->hasOne(Categores::class);
+        return $this->belongsTo(Categores::class);
     }
 
     public function post()
     {
-        $this->hasMany(Post::class);
+        return $this->belongsToMany(Post::class);
     }
 }
