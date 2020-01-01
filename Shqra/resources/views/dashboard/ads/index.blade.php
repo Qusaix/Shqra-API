@@ -4,12 +4,12 @@
 <div class="row">
     <div class="col-12" style="margin-left:3%; margin-right:3%;">
         <div class="card">
-           <div class="btn-group">
-  <button type="button" class="btn btn-primary"  aria-expanded="false">
+           <div style="margin:1%;" class="btn-group">
+  <button  type="button" class="btn btn-primary"  aria-expanded="false">
       @if($Ad)
-      <a href="{{route('dashboard.ads.edit',1)}}"> Update </a>
+      <a  class="text-light" href="{{route('dashboard.ads.edit',1)}}"> Update </a>
     @else
-    <a href="{{route('dashboard.ads.create')}}"> Create </a>
+      <a class="text-light" href="{{route('dashboard.ads.create')}}"> Create </a>
 
       @endif
   </button>

@@ -41,7 +41,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <label for="mega-lastname">Old Price</label>
-                                            <input class="form-control input-lg" type="text" id="mega-username" name="old_price" placeholder="Enter Your Old Price..." value={{$Ad->old_price}}/>
+                                            <input class="form-control input-lg" type="text" id="mega-username" name="old_price" placeholder="Enter Your Old Price..." value={{$Ad->old_price}} />
                                         </div>
                                     </div>
                                 </div>
