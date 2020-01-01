@@ -6,18 +6,22 @@
         <div class="card">
            <div class="btn-group">
   <button type="button" class="btn btn-primary"  aria-expanded="false">
-    Create 
+      @if($Ad)
+      <a href="{{route('dashboard.ads.edit',1)}}"> Update </a>
+    @else
+    <a href="{{route('dashboard.ads.create')}}"> Create </a>
+
+      @endif
   </button>
   
 </div>
              <div class="card-content">
                 <div id="circle-shape-example" >
-                    <img style="margin:3%;" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/kiwifruit-on-a-plate.jpg" alt="A photograph of sliced kiwifruit on a while plate" class="curve">
-                    <h1>KiwiFruit</h1>
-                    <p style="margin-bottom:10%;">This is kiwifruit: originally called “yang tao”, “melonette” or Chinese gooseberry. Cultivated in its fuzzy variety from Chinese imports, the fruit proved popular with American military servicemen stationed in New Zealand during World War II, with commercial export to the United States starting after the end of the war. In California, the fruit was rebranded as “kiwifruit” due to its resemblance to New Zealand’s national bird. However, it is not a “kiwi”, which is also the demonym for native New Zealanders. 
-                        Saying “I’m going to eat a kiwi” 
-                        implies that you are either a 
-                        cannibal or planning to dine on an endangered flightless bird.</p>
+                    <img style="margin:3%;" src="{{$Ad->image}}" alt="A photograph of sliced kiwifruit on a while plate" class="curve">
+                    <h1>{{$Ad->title}}</h1>
+                    <p style="margin-bottom:10%;">{{$Ad->description}}</p>
+                    <h1>New Price:${{$Ad->price}} <hr/>Old Price:${{$Ad->old_price}}</h1>
+
                   </div>
             </div>
         </div>

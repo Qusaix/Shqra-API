@@ -13,7 +13,7 @@
 
                 <li class="nav-item nav-drawer-header">Apps</li>
 
-                <li class="{{(Route::current()->getName() == 'dashboard.home') ? 'nav-item active' : 'nav-item'}}">
+                <li class="{{(Route::current()->getName() == 'dashboard.home') ? 'nav-item active'  : 'nav-item'}}">
                     <a href="{{route('dashboard.home')}}"><i class="ion-ios-speedometer-outline"></i> Dashboard</a>
                 </li>
 

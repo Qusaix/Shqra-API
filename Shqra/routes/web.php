@@ -25,6 +25,20 @@ Route::namespace('dashboard')->prefix('dashboard')->group(function(){
     Route::prefix('ads')->group(function(){
         Route::get('/','AdsController@index')->name('dashboard.ads');
         Route::get('/datatable','AdsController@datatable')->name('dashboard.ads.datatable');
+        
+        // Create Ads
+
+        Route::get('create','AdsController@create')->name('dashboard.ads.create');
+        Route::post('store','AdsController@store')->name('dashboard.ads.store');
+
+
+        // Edit Ads
+
+        Route::get('edit/{id}','AdsController@edit')->name('dashboard.ads.edit');
+        Route::post('update/{id}','AdsController@update')->name('dashboard.ads.update');
+
+
+
     });
 
 
