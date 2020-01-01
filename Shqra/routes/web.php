@@ -20,12 +20,20 @@ Route::get('login',function(){
 
 Route::namespace('dashboard')->prefix('dashboard')->group(function(){
 
-    Route::get('/','HomeController@index')->name('home');
+    Route::get('/','HomeController@index')->name('dashboard.home');
+
+    Route::prefix('ads')->group(function(){
+        Route::get('/','AdsController@index')->name('dashboard.ads');
+        Route::get('/datatable','AdsController@datatable')->name('dashboard.ads.datatable');
+    });
 
 
 });
 
 Route::namespace('frontend')->group(function(){
     Route::get('/','HomeController@index')->name('home');
+
+   
+
 });
 
