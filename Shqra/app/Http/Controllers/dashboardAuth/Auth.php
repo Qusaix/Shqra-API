@@ -12,6 +12,10 @@ class Auth extends Controller
 {
     public function login()
     {
+        if(auth()->user()){
+            return redirect()->route('dashboard.home');
+        }
+
         return view('auth.login');
     }
 

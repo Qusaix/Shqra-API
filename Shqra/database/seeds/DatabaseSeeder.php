@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
 
         
         // $subCategore->categore()->associate($mainCategore);
-
+ 
 
         // factory(App\Categores::class, 20)->create();
         $this->call([
