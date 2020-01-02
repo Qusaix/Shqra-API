@@ -46,8 +46,8 @@
 						<div class="char_item d-flex flex-row align-items-center justify-content-start">
 							<div class="char_icon"><img src="images/char_2.png" alt=""></div>
 							<div class="char_content">
-								<div class="char_title">Free Delivery</div>
-								<div class="char_subtitle">from $50</div>
+								<div class="char_title">Sell Your Used Item</div>
+								<div class="char_subtitle">You Can seal Your Used Items </div>
 							</div>
 						</div>
 					</div>
@@ -58,8 +58,8 @@
 						<div class="char_item d-flex flex-row align-items-center justify-content-start">
 							<div class="char_icon"><img src="images/char_3.png" alt=""></div>
 							<div class="char_content">
-								<div class="char_title">Free Delivery</div>
-								<div class="char_subtitle">from $50</div>
+								<div class="char_title">Refine</div>
+								<div class="char_subtitle">After 30 days</div>
 							</div>
 						</div>
 					</div>
@@ -70,8 +70,8 @@
 						<div class="char_item d-flex flex-row align-items-center justify-content-start">
 							<div class="char_icon"><img src="images/char_4.png" alt=""></div>
 							<div class="char_content">
-								<div class="char_title">Free Delivery</div>
-								<div class="char_subtitle">from $50</div>
+								<div class="char_title">Sales</div>
+								<div class="char_subtitle">Beast Sales Ever</div>
 							</div>
 						</div>
 					</div>
