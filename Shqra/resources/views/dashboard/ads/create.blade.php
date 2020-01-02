@@ -11,7 +11,13 @@
              <div class="card-content">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Multiple Columns</h4>
+                        @if($errors->any())
+                        <div class="alert alert-danger" role="alert"> There is Someting Wrong
+                            @foreach ($errors->all() as $error )
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </div>
+                        @endif
                         <ul class="card-actions">
                             <li>
                                 <button type="button" data-toggle="card-action" data-action="refresh_toggle" data-action-mode="demo"><i class="ion-refresh"></i></button>
@@ -29,11 +35,11 @@
                                     <div class="form-group">
                                         <div class="col-xs-6">
                                             <label for="mega-firstname">Title</label>
-                                            <input class="form-control input-lg" type="text" id="mega-firstname" name="title" placeholder="incert The Title" />
+                                            <input value="{{ old('title') }}" class="form-control input-lg" type="text" id="mega-firstname" name="title" placeholder="incert The Title" />
                                         </div>
                                         <div class="col-xs-6">
                                             <label for="mega-lastname">New Price</label>
-                                            <input class="form-control input-lg" type="text" id="mega-lastname" name="price" placeholder="Incert The Description"/>
+                                            <input value="{{ old('price') }}" class="form-control input-lg" type="text" id="mega-lastname" name="price" placeholder="Incert The Description"/>
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +47,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <label for="mega-lastname">Old Price</label>
-                                            <input class="form-control input-lg" type="text" id="mega-username" name="old_price" placeholder="Enter Your Old Price..." />
+                                            <input value="{{ old('old_price') }}" class="form-control input-lg" type="text" id="mega-username" name="old_price" placeholder="Enter Your Old Price..." />
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +57,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <label for="mega-bio">Description</label>
-                                            <textarea class="form-control input-lg" id="description" name="description" rows="22" placeholder="Enter a few details about your Ad..."></textarea>
+                                            <textarea class="form-control input-lg" id="description" name="description" rows="22" placeholder="Enter a few details about your Ad...">{{ old('description') }}"</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +67,7 @@
                                             <div class="form-group">
                                                 <div class="col-sm-offset-2 col-sm-10">
                                                     <label class="file-upload btn btn-primary">
-                                                        Browse for file ... <input type="file" />
+                                                        Browse for file ... <input name="image" type="file" />
                                                     </label>
                                                 </div>
                                             </div>
@@ -102,7 +108,7 @@
                             </div>
                             <div class="form-group m-b-0">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-app" type="submit"><i class="ion-checkmark m-r-xs"></i> Complete Profile</button>
+                                    <button class="btn btn-app" type="submit"><i class="ion-checkmark m-r-xs"></i>Create</button>
                                 </div>
                             </div>
                         </form>

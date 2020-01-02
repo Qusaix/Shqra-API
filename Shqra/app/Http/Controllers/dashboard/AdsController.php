@@ -4,13 +4,18 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\PostRequest;
 use App\Ads;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdsController extends Controller
 {
     public function index()
     {
         $Ad = Ads::find(1);
+
+
 
         return view('dashboard.ads.index',compact('Ad'));
     }
@@ -28,7 +33,7 @@ class AdsController extends Controller
     }
     
 
-    public function update(Request $request , $id )
+    public function update(PostRequest $request , $id )
     {
         $updateAd = Ads::find($id);
 
@@ -36,24 +41,31 @@ class AdsController extends Controller
         $updateAd->description = $request->description;
         $updateAd->price = $request->price;
         $updateAd->old_price = $request->old_price;
-        $updateAd->image = "https://purepng.com/public/uploads/medium/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-2515306897439urzk.png";
+        $updateAd->image =  Storage::disk('public')->put('Adsimags', $request->image);
 
+       
+       
         $updateAd->save();
+
+        Alert::toast('Ad Was Updated', 'success');
 
         return redirect()->route('dashboard.ads');
     }
 
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $newad = new Ads;
-
+        Storage::disk()->put('Adsimags', $request->image);
         $newad->title = $request->title;
         $newad->description = $request->description;
         $newad->price = $request->price;
         $newad->old_price = $request->old_price;
-        $newad->image = "https://purepng.com/public/uploads/medium/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-2515306897439urzk.png";
-
+        $newad->image = Storage::get($request->image);
+         
         $newad->save();
+        
+        Alert::toast('Ad Was Created', 'success');
+
 
         return redirect()->route('dashboard.ads');
     }

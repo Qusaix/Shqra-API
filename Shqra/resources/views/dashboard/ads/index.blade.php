@@ -17,11 +17,12 @@
 </div>
              <div class="card-content">
                 <div id="circle-shape-example" >
-                    <img style="margin:3%;" src="{{$Ad->image}}" alt="A photograph of sliced kiwifruit on a while plate" class="curve">
+                  @if($Ad)
+                    <img style="margin:3%;" src='{{asset('uploads/'.$Ad->image)}}' alt="A photograph of sliced kiwifruit on a while plate" class="curve">
                     <h1>{{$Ad->title}}</h1>
                     <p style="margin-bottom:10%;">{{$Ad->description}}</p>
                     <h1>New Price:${{$Ad->price}} <hr/>Old Price:${{$Ad->old_price}}</h1>
-
+                  @endif
                   </div>
             </div>
         </div>

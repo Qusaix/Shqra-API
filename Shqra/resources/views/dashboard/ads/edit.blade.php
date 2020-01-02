@@ -11,7 +11,13 @@
              <div class="card-content">
                 <div class="card">
                     <div class="card-header">
-                        {{-- <h4>Multiple Columns</h4> --}}
+                        @if($errors->any())
+                        <div class="alert alert-danger" role="alert"> There is Someting Wrong
+                            @foreach ($errors->all() as $error )
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </div>
+                        @endif
                         <ul class="card-actions">
                             <li>
                                 <button type="button" data-toggle="card-action" data-action="refresh_toggle" data-action-mode="demo"><i class="ion-refresh"></i></button>
@@ -22,8 +28,8 @@
                         </ul>
                     </div>
                     <div class="card-block">
-                        <form class="form-horizontal m-t-sm" action="{{route('dashboard.ads.update',$Ad->id)}}" method="post" >
-                            @csrf
+                        <form class="form-horizontal m-t-sm" action="{{route('dashboard.ads.update',$Ad->id)}}" method="post" enctype="multipart/form-data" >
+                            @csrf 
                             <div class="row">
                                 <div class="col-sm-7">
                                     <div class="form-group">
@@ -61,7 +67,7 @@
                                             <div class="form-group">
                                                 <div class="col-sm-offset-2 col-sm-10">
                                                     <label class="file-upload btn btn-primary">
-                                                        Browse for file ... <input type="file" />
+                                                        Browse for file ... <input name="image" type="file" />
                                                     </label>
                                                 </div>
                                             </div>

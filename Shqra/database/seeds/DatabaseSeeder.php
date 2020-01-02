@@ -6,6 +6,8 @@ use Illuminate\Support\Str;
 use App\Subcategores;
 use App\Categores;
 use App\Order;
+use App\User;
+use App\Ads;
 
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -37,11 +39,32 @@ class DatabaseSeeder extends Seeder
         ->each(function($post){
             $post->subcategore()->associate(factory(App\Subcategores::class)->make());
         });
+
       
         $role = Role::create(['name' => 'writer']);
         $permission = Permission::create(['name' => 'edit articles']);
 
+        $roleAdmin = Role::create(['name' => 'admin']);
 
+        $adminRole = Role::find(2);
+
+        $admin = new user;
+        $admin->name = 'Admin';
+        $admin->password = bcrypt(123456);
+        $admin->email = 'admin@ecommers.com';
+        $admin->zip_code = '1215';
+        $admin->phone = '044578952';
+        $admin->save();
+        $admin->assignRole($adminRole);
+
+
+        $ad = new Ads;
+        $ad->title = "Iphone X";
+        $ad->description = "This is a Big Jump From last Generation ";
+        $ad->price = "500";
+        $ad->old_price = "1000";
+        $ad->image = 'https://www.masabi.com/wp-content/uploads/2013/01/iphone-7-perspective-screen-1.png';
+        $ad->save();
 
 
 

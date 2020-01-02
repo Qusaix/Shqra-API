@@ -72,7 +72,10 @@
                                 <a href="base_pages_profile.html"><span class="badge badge-success pull-right">3</span> Blog</a>
                             </li>
                             <li>
-                                <a href="frontend_login_signup.html">Logout</a>
+                                <form action="{{route('logout')}}" method="POST">
+                                    @csrf
+                                <button type="submit"><a>Logout</a></button>
+                                </form>
                             </li>
                         </ul>
                     </li>

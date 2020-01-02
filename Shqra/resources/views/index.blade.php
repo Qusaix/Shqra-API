@@ -7,7 +7,8 @@
 			<div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
 			<div class="container fill_height">
 				<div class="row fill_height">
-					<div class="banner_product_image"><img src="{{$ads->image}}" alt="{{$ads->description}}"></div>
+					@if($ads)
+					<div class="banner_product_image" style="width-max:50%;"><img src="{{asset("uploads/".$ads->image)}}" alt="{{$ads->description}}"></div>
 					<div class="col-lg-5 offset-lg-4 fill_height">
 						<div class="banner_content" style="background:#fff; padding:5%; border-radius:7px;">
 							<h1 class="banner_text">{{$ads->title}}</h1>
@@ -16,6 +17,7 @@
 							<div class="button banner_button"><a href="#">Shop Now</a></div>
 						</div>
 					</div>
+					@endif
 				</div>
 			</div>
 		</div>

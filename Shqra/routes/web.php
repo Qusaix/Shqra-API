@@ -14,11 +14,14 @@
 // Route::get('/', function () {
 //     return view('index');
 // });
-Route::get('login',function(){
-    return "You Need Tol login";
-})->name('login');
+Route::get('login','dashboardAuth\Auth@login')->name('login');
+Route::post('login','dashboardAuth\Auth@login_button')->name('login_now');
+Route::post('logout','dashboardAuth\Auth@logout')->name('logout');
 
-Route::namespace('dashboard')->prefix('dashboard')->group(function(){
+
+
+
+Route::namespace('dashboard')->middleware('auth')->prefix('dashboard')->group(function(){
 
     Route::get('/','HomeController@index')->name('dashboard.home');
 

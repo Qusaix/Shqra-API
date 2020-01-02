@@ -85,6 +85,7 @@
         <script src="{{asset('assets_d/js/plugins/flot/jquery.flot.pie.min.js')}}"></script>
         <script src="{{asset('assets_d/js/plugins/flot/jquery.flot.stack.min.js')}}"></script>
         <script src="{{asset('assets_d/js/plugins/flot/jquery.flot.resize.min.js')}}"></script>
+        @include('sweetalert::alert')
 
         <!-- Page JS Code -->
         <script src="{{asset('assets_d/js/pages/index.js')}}"></script>
