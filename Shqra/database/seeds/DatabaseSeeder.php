@@ -8,7 +8,9 @@ use App\Categores;
 use App\Order;
 use App\User;
 use App\Ads;
-
+use App\Post;
+use App\Sales;
+use App\Featured;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -23,6 +25,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run() 
     {
+        $newpost = new post;
+        $newpost->title = "New Product";
+        $newpost->description = "The news product ever";
+        $newpost->image = "link";
+        $newpost->price = "600";
+        $newpost->save();
+
+        $featured = new Featured;
+        $featured->product_name = $newpost->title;
+        $featured->old_price = "500";
+        $featured->new_price = "300";
+        $featured->image = "link";
+        $featured->save();
+        
+        $newpost->featured()->associate($newpost);
 
         $role = Role::create(['name' => 'writer']);
         $permission = Permission::create(['name' => 'edit articles']);
@@ -49,7 +66,7 @@ class DatabaseSeeder extends Seeder
         $ad->image = 'https://www.masabi.com/wp-content/uploads/2013/01/iphone-7-perspective-screen-1.png';
         $ad->save();
 
-
+    
         
         // $subCategore->categore()->associate($mainCategore);
  

@@ -23,9 +23,13 @@
 
                 </li>
 
-                <li class="nav-item nav-drawer-header">Components</li>
+                <li class="nav-item nav-drawer-header">Edit/Add</li>
 
-               
+                <li class='{{ (Route::current()->getName() == 'dashboard.featured') ? "nav-item active" : "nav-item" }}'>
+
+                    <a href="{{route('dashboard.featured')}}"><i class="fa fa-star"></i>Featured</a>
+
+                </li>
 
             </ul>
         </nav>

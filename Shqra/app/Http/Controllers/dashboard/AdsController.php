@@ -61,7 +61,7 @@ class AdsController extends Controller
         $newad->price = $request->price;
         $newad->old_price = $request->old_price;
         $newad->image = Storage::get($request->image);
-         
+        return 
         $newad->save();
         
         Alert::toast('Ad Was Created', 'success');

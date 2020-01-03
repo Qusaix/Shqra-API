@@ -15,5 +15,15 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function sales()
+    {
+        return $this->belongsTo(Sales::class);
+    }
+
+    public function featured()
+    {
+        return $this->belongsTo(Featured::class);
+    }
     
 }

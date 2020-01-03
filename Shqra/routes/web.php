@@ -44,6 +44,24 @@ Route::namespace('dashboard')->middleware('auth')->prefix('dashboard')->group(fu
 
     });
 
+    Route::prefix('featured')->group(function(){
+
+        Route::get('/','featuredController@index')->name('dashboard.featured');
+
+        // Store Featured Routes
+        Route::get('create','featuredController@create')->name('dashboard.featured.create');
+        Route::post('store','featuredController@store')->name('dashboard.featured.store');
+        
+        // Update Featured Routes
+        Route::get('/{id}','featuredController@edit')->name('dashboard.featured.edit');
+        Route::post('update/{id}','featuredController@update')->name('dashboard.featured.update');
+
+
+
+
+
+    });
+
 
 });
 
