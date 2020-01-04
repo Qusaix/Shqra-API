@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $newpost = new post;
         $newpost->title = "New Product";
         $newpost->description = "The news product ever";
-        $newpost->image = "link";
+        $newpost->image = "https://www.dlf.pt/png/big/15/151322_car-back-view-png.png";
         $newpost->price = "600";
         $newpost->save();
 
@@ -36,7 +36,8 @@ class DatabaseSeeder extends Seeder
         $featured->product_name = $newpost->title;
         $featured->old_price = "500";
         $featured->new_price = "300";
-        $featured->image = "link";
+        $featured->image = "https://www.dlf.pt/png/big/15/151322_car-back-view-png.png";
+        $featured->featured = '0';
         $featured->save();
         
         $newpost->featured()->associate($newpost);

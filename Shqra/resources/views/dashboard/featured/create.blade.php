@@ -70,6 +70,10 @@
                             <div class="row">
                                
                                 <div class="col-sm-5">
+                                    <label class="css-input switch switch-sm switch-default">
+                                        <input type="checkbox" id="login1-remember-me" name="featured"><span></span>Featured?
+                                        </label>
+                                        
                                     {{-- <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="form-group">

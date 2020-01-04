@@ -14,13 +14,16 @@ class HomeController extends Controller
     public function index()
     {
         $categores = Categores::get();
-        $featured = Featured::get();
+        $featured = Featured::where('featured',1)->get();
+        $onSale = Featured::where('new_price',"!=",null)->get();
+
         $ads = Ads::find(1);
 
         return view('index',compact(
         'categores',
         'ads',
-        'featured'
+        'featured',
+        'onSale'
     ));
     }
 }

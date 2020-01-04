@@ -18,6 +18,7 @@ class CreateFeaturedsTable extends Migration
             $table->string('product_name');
             $table->string('old_price');
             $table->string('new_price')->nullable();
+            $table->boolean('featured');
             $table->longText('image');
             $table->timestamps();
         });

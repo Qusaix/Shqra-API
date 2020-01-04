@@ -34,28 +34,26 @@
                                 <div class="col-sm-7">
                                     <div class="form-group">
                                         <div class="col-xs-6">
-                                            <label for="mega-firstname">Product Name</label>
-                                            <input class="form-control input-lg" type="text" id="mega-firstname" name="product_name" placeholder="incert The Product Name" value={{$featured->product_name}} />
+                                            <label for="mega-skills">Products</label>
+                                            <select class="form-control" id="mega-skills" name="product">
+                                                @foreach ($products as $product )
+                                                <option value={{$product->id}}>{{$product->Title}} ${{$product->price}}</option>
+                                                @endforeach                                                
+                          
+                                            </select>
                                         </div>
                                         <div class="col-xs-6">
                                             <label for="mega-lastname">New Price</label>
-                                            <input class="form-control input-lg" type="text" id="mega-lastname" name="new_price" placeholder="Incert The Price" value={{$featured->new_price}} />
+                                            <input class="form-control input-lg" type="text" id="mega-lastname" name="new_price" placeholder="Incert The Price" value={{$featured->new_price}}  >
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <div class="col-xs-12">
-                                            <label for="mega-lastname">Old Price</label>
-                                            <input class="form-control input-lg" type="text" id="mega-username" name="old_price" placeholder="Enter Your Old Price..." value={{$featured->old_price}} />
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="row">
                               
                                 <div class="col-sm-5">
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <div class="col-xs-12">
                                             <div class="form-group">
                                                 <div class="col-sm-10">
@@ -64,12 +62,15 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
+                                        <label class="css-input switch switch-sm switch-default">
+                                            <input type="checkbox" id="login1-remember-me" name="featured"><span></span>Featured?
+                                            </label>
                                     </div>
                                   
                                 
                                   
-                                </div>
+                                
                             </div>
                             <div class="form-group m-b-0">
                                 <div class="col-xs-12">

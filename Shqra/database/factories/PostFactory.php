@@ -10,6 +10,6 @@ $factory->define(Post::class, function (Faker $faker) {
         'Title' => $faker->name,
         'description' => $faker->paragraph,
         'image'=>$faker->imageUrl($width = 640, $height = 480 , 'cats', true, 'Faker'),
-        'price'=>$faker->randomDigit
+        'price'=>$faker->randomDigit,
     ];
 });
