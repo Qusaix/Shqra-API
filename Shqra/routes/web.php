@@ -56,6 +56,9 @@ Route::namespace('dashboard')->middleware('auth')->prefix('dashboard')->group(fu
         Route::get('/{id}','featuredController@edit')->name('dashboard.featured.edit');
         Route::post('update/{id}','featuredController@update')->name('dashboard.featured.update');
 
+        // Delete Featured Routes
+        Route::post('delete/{id}','featuredController@delete')->name('dashboard.featured.delete');
+
 
 
 

@@ -43,8 +43,12 @@
         <div class="thumbnail">
             <div class="caption">
               <div class='col-lg-12'>
-                  <span class="fa fa-shopping-cart"></span>
-                  <span class="fa fa-trash pull-right text-primary"></span>
+                  <form action='{{route('dashboard.featured.delete',$f->id)}}' method="POST">
+                    @csrf
+                    <span class="fa fa-shopping-cart"></span>
+
+                  <button style="background:none; border:0;" type="submit" ><span class="fa fa-trash pull-right text-primary"></span></button>
+                  </form>
               </div>
               <div class='col-lg-12 well well-add-card'>
                   <h4>{{$f->product_name}}</h4>

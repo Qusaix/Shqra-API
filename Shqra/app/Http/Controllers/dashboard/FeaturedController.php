@@ -93,5 +93,13 @@ class FeaturedController extends Controller
         return redirect()->route('dashboard.featured');
     }
 
+    public function delete($id)
+    {
+        $featured = Featured::find($id);
+        $featured->delete();
+
+        return back();
+    }
+
     
 }

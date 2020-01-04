@@ -20,6 +20,7 @@ class CreateFeaturedsTable extends Migration
             $table->string('new_price')->nullable();
             $table->boolean('featured');
             $table->longText('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
