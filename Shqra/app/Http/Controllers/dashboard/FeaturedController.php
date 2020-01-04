@@ -69,13 +69,13 @@ class FeaturedController extends Controller
     public function update(Request $request,$id)
     {
         $featured = Featured::find($id);
-        $product = Post::find($request->product);
+        // $product = Post::find($request->product);
 
 
-        $featured->product_name = $product->Title;
+        // $featured->product_name = $product->Title;
         $featured->new_price = $request->new_price;
-        $featured->old_price = $product->price;
-        $featured->image = $product->image;
+        // $featured->old_price = $product->price;
+        // $featured->image = $product->image;
         if($request->featured)
         {
             $featured->featured = "1";

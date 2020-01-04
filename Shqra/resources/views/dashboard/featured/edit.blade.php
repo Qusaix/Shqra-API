@@ -34,13 +34,15 @@
                                 <div class="col-sm-7">
                                     <div class="form-group">
                                         <div class="col-xs-6">
-                                            <label for="mega-skills">Products</label>
+                                            {{-- <label for="mega-skills">Products</label>
                                             <select class="form-control" id="mega-skills" name="product">
                                                 @foreach ($products as $product )
                                                 <option value={{$product->id}}>{{$product->Title}} ${{$product->price}}</option>
                                                 @endforeach                                                
                           
-                                            </select>
+                                            </select> --}}
+                                            <label for="mega-lastname">New Price</label>
+                                            <input class="form-control input-lg" type="text" id="mega-lastname" name="new_price" placeholder="Incert The Price" value={{$featured->product_name}}  readonly >
                                         </div>
                                         <div class="col-xs-6">
                                             <label for="mega-lastname">New Price</label>
@@ -64,7 +66,12 @@
                                             </div>
                                         </div> --}}
                                         <label class="css-input switch switch-sm switch-default">
+                                            @if($featured->featured == "1")
+                                            <input type="checkbox" id="login1-remember-me" name="featured" checked><span></span>Featured?
+                                            @else
                                             <input type="checkbox" id="login1-remember-me" name="featured"><span></span>Featured?
+
+                                            @endif
                                             </label>
                                     </div>
                                   
