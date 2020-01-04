@@ -56,7 +56,7 @@
                                             <div class="form-group">
                                                 
                                                 <div class="col-sm-offset-2 col-sm-10">
-                                                    <label for="mega-lastname">Upload Image</label>
+                                                    <label for="mega-lastname">Upload Image</label> 
 
                                                     <label class="file-upload btn btn-primary">
                                                         Browse for file ... <input name="image" type="file" />
