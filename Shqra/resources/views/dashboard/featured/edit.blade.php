@@ -1,5 +1,7 @@
 @extends('dashboard.layouts.layout')
 @section('section')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <h2 class="section-title">Update Product</h2>
 <div class="row">
     <div class="col-12" style="margin-left:3%; margin-right:3%;">
@@ -41,12 +43,25 @@
                                                 @endforeach                                                
                           
                                             </select> --}}
-                                            <label for="mega-lastname">New Price</label>
+                                            <label for="mega-lastname">Product Name</label>
                                             <input class="form-control input-lg" type="text" id="mega-lastname" name="new_price" placeholder="Incert The Price" value={{$featured->product_name}}  readonly >
+                                            
                                         </div>
                                         <div class="col-xs-6">
                                             <label for="mega-lastname">New Price</label>
-                                            <input class="form-control input-lg" type="text" id="mega-lastname" name="new_price" placeholder="Incert The Price" value={{$featured->new_price}}  >
+                                            <input class="form-control input-lg" type="text" id="mega-firstname" name="new_price" placeholder="Incert The Price" value={{$featured->new_price}}  >
+                                        </div>
+                                        <div class="col-xs-6" style="margin-top:3%;">
+                                            <label for="mega-lastname">Rating</label>
+                                            <div class="star-rating">
+                                                <span class="fa fa-star-o" data-rating="1"></span>
+                                                <span class="fa fa-star-o" data-rating="2"></span>
+                                                <span class="fa fa-star-o" data-rating="3"></span>
+                                                <span class="fa fa-star-o" data-rating="4"></span>
+                                                <span class="fa fa-star-o" data-rating="5"></span>
+                                                <input id="rating" type="hidden" name="whatever1" class="rating-value" value="2.56" />
+                                              </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -100,9 +115,53 @@
     </div>
 </div>
 <script type="text/javascript">
+
     $(document).ready(function() {
-        $('.file-upload').file_upload();
+        // $('.file-upload').file_upload();
+      
+
+        $star_rating.on('click', function(e) {
+        $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+       var rating =  $("#rating").val();
+       
+
+       console.log(rating)
+         // AJAX
+               $.ajax({
+
+           type:'POST',
+           headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+            },
+           url:'{{route('dashboard.rating.store')}}',
+
+           data:{rating:rating,},
+
+           success:function(data){
+            return console.log(data);
+              alert(data.success);
+
+           },
+           error:function(error){
+               console.log(error);
+           }
+
+        });
+
+
+
+        e.preventDefault();
+        return SetRatingStar();
+        });
+
+       
+
+
+        
     });
+  
+
 </script>
 
 

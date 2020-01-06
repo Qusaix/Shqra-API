@@ -57,6 +57,15 @@
                   <p>New Price:{{$f->new_price}}$</p>
                   <p class"text-muted">Old Price:{{$f->old_price}}$</p>
               </div>
+              <div class="star-rating">
+                <span class="fa fa-star-o" data-rating="1"></span>
+                <span class="fa fa-star-o" data-rating="2"></span>
+                <span class="fa fa-star-o" data-rating="3"></span>
+                <span class="fa fa-star-o" data-rating="4"></span>
+                <span class="fa fa-star-o" data-rating="5"></span>
+                <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+              </div>
+            </div>
               <form action="{{route('dashboard.featured.edit',$f->id)}}" method="get">
               <button type="submit" class="btn btn-primary btn-xs btn-update btn-add-card">Update</button>
               {{-- <button type="submit" class="btn btn-danger btn-xs btn-update btn-add-card">Vrify Now</button> --}}

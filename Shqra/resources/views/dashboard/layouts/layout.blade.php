@@ -21,6 +21,7 @@
 
         <!-- Google fonts -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <!-- Page JS Plugins CSS -->
         <link rel="stylesheet" href="{{asset('assets_d/js/plugins/slick/slick.min.css')}}" />
@@ -32,6 +33,9 @@
         <link rel="stylesheet" id="css-bootstrap" href="{{asset('assets_d/css/bootstrap.css')}}" />
         <link rel="stylesheet" id="css-app" href="{{asset('assets_d/css/app.css')}}" />
         <link rel="stylesheet" id="css-app-custom" href="{{asset('assets_d/css/app-custom.css')}}" />
+        <link rel="stylesheet" id="custom-css" href="{{asset('assets_d/css/custom-css.css')}}" />
+
+
         <!-- End Stylesheets -->
     </head>
 
@@ -77,6 +81,9 @@
         <script src="{{asset('assets_d/js/core/jquery.placeholder.min.js')}}"></script>
         <script src="{{asset('assets_d/js/app.js')}}"></script>
         <script src="{{asset('assets_d/js/app-custom.js')}}"></script>
+        <script src="{{asset('assets_d/js/custom-scripts.js')}}"></script>
+
+
 
         <!-- Page Plugins -->
         <script src="{{asset('assets_d/js/plugins/slick/slick.min.js')}}"></script>
@@ -85,6 +92,7 @@
         <script src="{{asset('assets_d/js/plugins/flot/jquery.flot.pie.min.js')}}"></script>
         <script src="{{asset('assets_d/js/plugins/flot/jquery.flot.stack.min.js')}}"></script>
         <script src="{{asset('assets_d/js/plugins/flot/jquery.flot.resize.min.js')}}"></script>
+
         @include('sweetalert::alert')
 
         <!-- Page JS Code -->

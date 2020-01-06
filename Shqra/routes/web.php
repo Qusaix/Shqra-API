@@ -65,6 +65,12 @@ Route::namespace('dashboard')->middleware('auth')->prefix('dashboard')->group(fu
 
     });
 
+    Route::prefix('rating')->group(function(){
+        
+        Route::post('store','RatingController@store')->name('dashboard.rating.store');
+
+    });
+
 
 });
 
