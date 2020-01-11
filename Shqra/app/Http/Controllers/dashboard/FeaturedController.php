@@ -13,7 +13,7 @@ class FeaturedController extends Controller
     public function index()
     {
         $featured = Featured::get()->take(6)->sortByDesc('created_at');
-
+        
 
         return view('dashboard.featured.index', compact('featured'));
     }
@@ -61,6 +61,7 @@ class FeaturedController extends Controller
     {
         $featured = Featured::find($id);
         $products = Post::get();
+
 
 
         return view('dashboard.featured.edit',compact('featured','products'));

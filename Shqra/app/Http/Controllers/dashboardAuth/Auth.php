@@ -38,4 +38,10 @@ class Auth extends Controller
 
         return redirect()->route('login');
     }
+
+
+    public function rigster()
+    {
+        return view('auth.registration');
+    }
 }

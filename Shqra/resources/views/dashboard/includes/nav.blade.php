@@ -58,7 +58,7 @@
 
                     <li class="dropdown dropdown-profile">
                         <a href="javascript:void(0)" data-toggle="dropdown">
-                            <span class="m-r-sm">John Doe <span class="caret"></span></span>
+                            <span class="m-r-sm">{{auth()->user()->first_name}}<span class="caret"></span></span>
                             <img class="img-avatar img-avatar-48" src="{{asset('assets_d/img/avatars/avatar3.jpg')}}" alt="User profile pic" />
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">

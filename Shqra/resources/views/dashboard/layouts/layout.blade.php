@@ -26,6 +26,8 @@
         <!-- Page JS Plugins CSS -->
         <link rel="stylesheet" href="{{asset('assets_d/js/plugins/slick/slick.min.css')}}" />
         <link rel="stylesheet" href="{{asset('assets_d/js/plugins/slick/slick-theme.min.css')}}" />
+        <link rel="stylesheet" href="{{asset('assets/css/flipclock.css')}}">
+
 
         <!-- AppUI CSS stylesheets -->
         <link rel="stylesheet" id="css-font-awesome" href="{{asset('assets_d/css/font-awesome.css')}}" />
@@ -82,6 +84,7 @@
         <script src="{{asset('assets_d/js/app.js')}}"></script>
         <script src="{{asset('assets_d/js/app-custom.js')}}"></script>
         <script src="{{asset('assets_d/js/custom-scripts.js')}}"></script>
+		<script src="{{asset('assets_d/js/flipclock/flipclock.min.js')}}"></script>
 
 
 

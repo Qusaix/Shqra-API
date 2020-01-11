@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Post;
+use App\Categores;
 
 class Post extends Model
 {
@@ -15,12 +17,22 @@ class Post extends Model
     * @var array
     */ 
     
-    protected $fillable = ['Title','description','price','image'];
+    protected $fillable = ['Title','description','price','image','categores_id'];
 
 
-    public function subcategore()
+    public function categore()
     {
-        return $this->belongsTo(Subcategores::class);
+        return $this->belongsTo(Categores::class);
+    }
+
+    public static function my_categore($id)
+    {   
+        // Find Product
+        $product  = Post::find($id);
+
+        // Find categore and return it
+        return Categores::where('id',$product->categores_id);
+        
     }
 
     public function order()
@@ -41,6 +53,11 @@ class Post extends Model
     public function rating()
     {
         return $this->belongsToMany(Rating::class);
+    }
+
+    public function countdown()
+    {
+        return $this->belongsTo(Countdown::class);
     }
     
 }

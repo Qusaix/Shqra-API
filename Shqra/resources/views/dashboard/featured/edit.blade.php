@@ -90,10 +90,14 @@
                                             </label>
                                     </div>
                                   
-                                
+
                                   
                                 
                             </div>
+                            <label for="mega-lastname">Countdown</label>
+
+                            <div style="width:100%;" class="your-clock"></div>
+
                             <div class="form-group m-b-0">
                                 <div class="col-xs-12">
                                     <button class="btn btn-app" type="submit"><i class="ion-checkmark m-r-xs"></i> Update</button>
@@ -118,14 +122,31 @@
 
     $(document).ready(function() {
         // $('.file-upload').file_upload();
-      
+       console.log({!! json_encode($featured->id) !!})
+        var huh  = new Date(Date.UTC(2020,12,{!! json_encode($featured->id) !!}));
+        var duh  = new Date();
+        var wha  = huh.getTime()/1000 - duh.getTime()/1000;
+        console.log(huh);
+
+
+        var clock = $('.your-clock').FlipClock(wha,{
+            clockFace: 'DailyCounter',
+            countdown: true
+        });
+        // var date =  new Date('December 17, 2023 03:24:00');
+        
+        // console.log(date);
+     //   clock.setCountdown(100000);
+
+
+
 
         $star_rating.on('click', function(e) {
         $star_rating.siblings('input.rating-value').val($(this).data('rating'));
        var rating =  $("#rating").val();
        
 
-       console.log(rating)
+     //  console.log(rating)
          // AJAX
                $.ajax({
 
@@ -139,8 +160,8 @@
            data:{rating:rating,},
 
            success:function(data){
-            return console.log(data);
-              alert(data.success);
+            // return console.log(data);
+            //   alert(data.success);
 
            },
            error:function(error){

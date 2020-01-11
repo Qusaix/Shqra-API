@@ -360,7 +360,7 @@
 												<div style="width:112px;" class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{$product->image}}" alt=""></div>
 												<div class="product_content">
 													<div class="product_price discount">${{$product->old_price}}<span>${{$product->new_price}}</span></div>
-													<div class="product_name"><div><a href="product.html">{{$product->product_name}}</a></div></div>
+													<div class="product_name"><div><a href="{{route('products',$product->id)}}">{{$product->product_name}}</a></div></div>
 													<div class="product_extras">
 														
 														<button class="product_cart_button">Add to Cart</button>

@@ -17,6 +17,7 @@
 Route::get('login','dashboardAuth\Auth@login')->name('login');
 Route::post('login','dashboardAuth\Auth@login_button')->name('login_now');
 Route::post('logout','dashboardAuth\Auth@logout')->name('logout');
+Route::get('rigster','dashboardAuth\Auth@rigster')->name('rigster');
 
 
 
@@ -71,11 +72,25 @@ Route::namespace('dashboard')->middleware('auth')->prefix('dashboard')->group(fu
 
     });
 
+    Route::prefix('countdown')->group(function(){
+
+        #Show Countdown Routes
+        Route::get('/','CountdownController@index')->name('dashboard.countdown');
+
+    });
+
 
 });
 
 Route::namespace('frontend')->group(function(){
     Route::get('/','HomeController@index')->name('home');
+
+    #Product Routes 
+    Route::prefix('product')->group(function(){
+
+        Route::get("/{id}",'ProductController@index')->name('products');
+
+    });
 
    
 

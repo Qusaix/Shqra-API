@@ -31,6 +31,13 @@
 
                 </li>
 
+                <li class='{{ (Route::current()->getName() == 'dashboard.countdown') ? "nav-item active" : "nav-item" }}'>
+
+                    <a href="{{route('dashboard.countdown')}}"><i class="fa fa-clock-o"></i>Countdown</a>
+
+                </li>
+
+
             </ul>
         </nav>
         <!-- End drawer navigation -->

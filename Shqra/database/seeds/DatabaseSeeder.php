@@ -11,9 +11,6 @@ use App\Ads;
 use App\Post;
 use App\Sales;
 use App\Featured;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-
 
 
 class DatabaseSeeder extends Seeder
@@ -25,12 +22,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run() 
     {
-        $newpost = new post;
+       $cn = new Categores();
+       $cn->description = "This is the description of the categore";
+       $cn->Title = "Computers";
+       $cn->save();
+
+        $newpost = new Post;
         $newpost->title = "New Product";
         $newpost->description = "The news product ever";
         $newpost->image = "https://www.dlf.pt/png/big/15/151322_car-back-view-png.png";
         $newpost->price = "600";
         $newpost->save();
+
+       $cn->product()->save($newpost);
+
 
         $featured = new Featured;
         $featured->product_name = $newpost->title;
@@ -42,21 +47,7 @@ class DatabaseSeeder extends Seeder
         
         $newpost->featured()->associate($newpost);
 
-        $role = Role::create(['name' => 'writer']);
-        $permission = Permission::create(['name' => 'edit articles']);
-
-        $roleAdmin = Role::create(['name' => 'admin']);
-
-        $adminRole = Role::find(2);
-
-        $admin = new user;
-        $admin->name = 'Admin';
-        $admin->password = bcrypt(123456);
-        $admin->email = 'admin@ecommers.com';
-        $admin->zip_code = '1215';
-        $admin->phone = '044578952';
-        $admin->save();
-        $admin->assignRole($adminRole);
+      
 
 
         $ad = new Ads;
@@ -67,23 +58,14 @@ class DatabaseSeeder extends Seeder
         $ad->image = 'https://www.masabi.com/wp-content/uploads/2013/01/iphone-7-perspective-screen-1.png';
         $ad->save();
 
-    
-        
-        // $subCategore->categore()->associate($mainCategore);
- 
-
-        // factory(App\Categores::class, 20)->create();
         $this->call([
             CategoreSeeder::class,
+            RoleSeeder::class,
         ]);
-        factory(App\Subcategores::class, 20)->create();
 
-        
         factory(App\Post::class, 20)
-        ->create()
-        ->each(function($post){
-            $post->subcategore()->associate(factory(App\Subcategores::class)->make());
-        });
+        ->create();
+       
 
       
        
