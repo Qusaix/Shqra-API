@@ -5,36 +5,45 @@
       <!-- Material registration -->
       <div class="card">
         <div class="card-header bg-green bg-inverse">
-            <h4>Material</h4>
+            <h4>Register</h4>
             <ul class="card-actions">
                 <li>
-                    <button type="button" data-toggle="card-action" data-action="refresh_toggle" data-action-mode="demo"><i class="ion-refresh"></i></button>
+                    <input type="checkbox" class="hide_company" name="company_conf"><span></span>Company?
+
                 </li>
                 <li>
-                    <button type="button" data-toggle="card-action" data-action="content_toggle"></button>
                 </li>
             </ul>
         </div>
         <div class="card-block">
-            <form class="form-horizontal m-t-sm" action="base_forms_samples.html" method="post" onsubmit="return false;">
+            @if($errors->any())
+            <div class="alert alert-danger" role="alert"> There is Someting Wrong
+                @foreach ($errors->all() as $error )
+                    <li>{{$error}}</li>
+                @endforeach
+            </div>
+
+                @endif
+            <form class="form-horizontal m-t-sm" action="{{route('rigster.user')}}" method="post">
+                @csrf
                 <div class="form-group">
                     <div class="col-xs-6">
                         <div class="form-material">
-                            <input class="form-control" type="text" id="register5-firstname" name="register5-firstname" placeholder="Your first name" />
+                            <input  value='{{old('first_name')}}' class="form-control" type="text" id="register5-firstname" name="first_name" placeholder="Your first name" />
                             <label for="register5-firstname">First name</label>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-material">
-                            <input class="form-control" type="text" id="register5-lastname" name="register5-lastname" placeholder="Your last name" />
+                            <input value='{{old('last_name')}}' class="form-control" type="text" id="register5-lastname" name="last_name" placeholder="Your last name" />
                             <label for="register5-lastname">Last name</label>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group hide-company-input">
                     <div class="col-xs-12">
                         <div class="form-material input-group">
-                            <input class="form-control" type="text" id="register5-account" name="register5-account" placeholder="Company's name..." />
+                            <input  value='{{old('company_name')}}' class="form-control" type="text" id="register5-account" name="company_name" placeholder="Company's name..." />
                             <label for="register5-account">Company</label>
                             <span class="input-group-addon">.example.com</span>
                         </div>
@@ -43,7 +52,7 @@
                 <div class="form-group">
                     <div class="col-xs-12">
                         <div class="form-material input-group">
-                            <input class="form-control" type="email" id="register5-email" name="register5-email" placeholder="Enter email..." />
+                            <input value='{{old('email')}}' class="form-control" type="email" id="register5-email" name="email" placeholder="Enter email..." />
                             <label for="register5-email">Email</label>
                             <span class="input-group-addon"><i class="ion-ios-email"></i></span>
                         </div>
@@ -52,7 +61,25 @@
                 <div class="form-group">
                     <div class="col-xs-12">
                         <div class="form-material input-group">
-                            <input class="form-control" type="password" id="register5-password" name="register5-password" placeholder="Enter password..." />
+                            <input value='{{old('zip_code')}}' class="form-control" type="text" id="register25-email" name="zip_code" placeholder="Enter zip code..." />
+                            <label for="register5-email">Zip Code</label>
+                            <span class="input-group-addon"><i class="ion-ios-home"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="form-material input-group">
+                            <input value='{{old('phone')}}' class="form-control" type="tel" id="register35-email" name="phone" placeholder="Enter phone number..." />
+                            <label for="register5-email">Phone Number</label>
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="form-material input-group">
+                            <input class="form-control" type="password" id="register5-password" name="password" placeholder="Enter password..." />
                             <label for="register5-password">Password</label>
                             <span class="input-group-addon"><i class="ion-asterisk"></i></span>
                         </div>
@@ -61,7 +88,7 @@
                 <div class="form-group">
                     <div class="col-xs-12">
                         <div class="form-material input-group">
-                            <input class="form-control" type="password" id="register5-password2" name="register5-password2" placeholder="Confirm password..." />
+                            <input class="form-control" type="password" id="register5-password2" name="conform-password" placeholder="Confirm password..." />
                             <label for="register5-password2">Confirm Password</label>
                             <span class="input-group-addon"><i class="ion-asterisk"></i></span>
                         </div>
@@ -86,4 +113,22 @@
     <!-- .card -->
     <!-- End Material registration -->
 </div>
+<script>
+$(document).ready(function(){
+    $('.hide-company-input').hide()
+
+    // Logic To Show and Hide the Company Input
+    $(".hide_company").click(function(){
+        if( $(this).prop('checked') == true ){
+            return $('.hide-company-input').show()
+        }
+        else if( $(this).prop('checked') == false ){
+           return $('.hide-company-input').hide()
+        }
+    })    
+
+
+})
+</script>
+
 @endsection

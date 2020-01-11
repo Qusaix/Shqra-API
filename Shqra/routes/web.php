@@ -18,11 +18,12 @@ Route::get('login','dashboardAuth\Auth@login')->name('login');
 Route::post('login','dashboardAuth\Auth@login_button')->name('login_now');
 Route::post('logout','dashboardAuth\Auth@logout')->name('logout');
 Route::get('rigster','dashboardAuth\Auth@rigster')->name('rigster');
+Route::post('rigster','dashboardAuth\Auth@rigster_button')->name('rigster.user');
 
 
 
 
-Route::namespace('dashboard')->middleware('auth')->prefix('dashboard')->group(function(){
+Route::namespace('dashboard')->middleware(['auth','role:admin'])->prefix('dashboard')->group(function(){
 
     Route::get('/','HomeController@index')->name('dashboard.home');
 

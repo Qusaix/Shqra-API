@@ -23,6 +23,8 @@
         <!-- Page JS Plugins CSS -->
         <link rel="stylesheet" href="{{asset('assets_d/js/plugins/slick/slick.min.css')}}" />
         <link rel="stylesheet" href="{{asset('assets_d/js/plugins/slick/slick-theme.min.css')}}" />
+        <script src="{{asset('assets_d/js/core/jquery.min.js')}}"></script>
+
 
         <!-- AppUI CSS stylesheets -->
         <link rel="stylesheet" id="css-font-awesome" href="{{asset('assets_d/css/font-awesome.css')}}" />
@@ -60,7 +62,6 @@
         <div class="app-ui-mask-modal"></div>
 
         <!-- AppUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock and App.js -->
-        <script src="{{asset('assets_d/js/core/jquery.min.js')}}"></script>
         <script src="{{asset('assets_d/js/core/bootstrap.min.js')}}"></script>
         <script src="{{asset('assets_d/js/core/jquery.slimscroll.min.js')}}"></script>
         <script src="{{asset('assets_d/js/core/jquery.scrollLock.min.js')}}"></script>

@@ -19,7 +19,7 @@
         <div class="form-group">
             <div class="col-xs-12">
                 <label class="css-input switch switch-sm switch-default">
-<input type="checkbox" id="login1-remember-me" name="login1-remember-me"><span></span> Remember Me?
+<input type="checkbox" id="login1-remember-me" name="remember_me"><span></span> Remember Me?
 </label>
 <div class="form-group m-b-0">
     <div class="col-xs-12">

@@ -45,9 +45,8 @@
 									<li>
 										<a href="#">English<i class="fas fa-chevron-down"></i></a>
 										<ul>
-											<li><a href="#">Italian</a></li>
-											<li><a href="#">Spanish</a></li>
-											<li><a href="#">Japanese</a></li>
+											<li><a href="#">Arabic</a></li>
+											
 										</ul>
 									</li>
 									<li>
@@ -61,9 +60,21 @@
 								</ul>
 							</div>
 							<div class="top_bar_user">
+								@if(auth()->user())
+								
+								<div class="user_icon"><img src="{{asset('images/user.svg')}}" alt=""></div>
+								<div><a href="{{route('rigster')}}">{{auth()->user()->first_name }}</a></div>
+								<form method="POST" action="{{route('logout')}}" style="float:right; margin-top:1%;">
+								@csrf
+								<div><button type="submit" style="background:none; border:none; margin-top:-1px; width:3px"><a>Logout</a></button></div> 
+								</form>
+									@else
 								<div class="user_icon"><img src="{{asset('images/user.svg')}}" alt=""></div>
 								<div><a href="{{route('rigster')}}">Register</a></div>
 								<div><a href="{{route('login')}}">Sign in</a></div> 
+								
+								@endif
+								
 							</div>
 						</div>
 					</div>

@@ -20,8 +20,10 @@ class RoleSeeder extends Seeder
         
         $permission = Permission::create(['name' => 'test']);
         $roleAdmin = Role::create(['name' => 'admin']);
+        $roleCompany = Role::create(['name' => 'company']);
         $roleNormalUser = Role::create(['name' => 'normal_user']);
         $roleStaff = Role::create(['name' => 'staff']);
+
 
 
 
