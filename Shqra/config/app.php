@@ -163,6 +163,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        yajra\Datatables\DatatablesServiceProvider::class,
+
 
 
 
@@ -233,6 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuthFacades\JWTFactory::class,
+        'Datatables' => yajra\Datatables\Datatables::class,
 
         
 

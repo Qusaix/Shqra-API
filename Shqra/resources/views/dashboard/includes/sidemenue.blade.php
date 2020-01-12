@@ -37,6 +37,13 @@
 
                 </li>
 
+                <li class="nav-item nav-drawer-header">Analytics</li>
+
+                <li class='{{ (Route::current()->getName() == 'dashboard.users') ? "nav-item active" : "nav-item" }}'>
+
+                    <a href="{{route('dashboard.users')}}"><i class="fa fa-user"></i>Users</a>
+
+                </li>
 
             </ul>
         </nav>

@@ -37,8 +37,20 @@
         <link rel="stylesheet" id="css-app-custom" href="{{asset('assets_d/css/app-custom.css')}}" />
         <link rel="stylesheet" id="custom-css" href="{{asset('assets_d/css/custom-css.css')}}" />
 
-
+    
         <!-- End Stylesheets -->
+
+        <!-- Datatable -->
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/datatables.min.js" defer></script>
+
+        <script type="text/javascript" src=" https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" defer></script>
+        {{-- <script type="text/javascript" src=" https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" defer></script> --}}
+       
+
+
+
+
+
     </head>
 
     <body class="app-ui layout-has-drawer layout-has-fixed-header">

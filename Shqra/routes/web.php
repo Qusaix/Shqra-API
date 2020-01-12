@@ -73,6 +73,12 @@ Route::namespace('dashboard')->middleware(['auth','role:admin'])->prefix('dashbo
 
     });
 
+    Route::prefix('users')->group(function(){
+        Route::get('/','UserController@index')->name('dashboard.users');
+        Route::get('/datatable','UserController@datatable')->name('dashboard.users.datatable');
+
+    });
+
     Route::prefix('countdown')->group(function(){
 
         #Show Countdown Routes
