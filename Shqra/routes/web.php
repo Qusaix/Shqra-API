@@ -79,6 +79,12 @@ Route::namespace('dashboard')->middleware(['auth','role:admin'])->prefix('dashbo
 
     });
 
+    Route::prefix('vendors')->group(function(){
+
+        Route::get('/','VendorController@index')->name('dashboard.vendors');
+
+    });
+
     Route::prefix('countdown')->group(function(){
 
         #Show Countdown Routes

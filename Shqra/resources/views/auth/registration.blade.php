@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.styleMaster')
-
+ 
 @section('section')
 <div class="card-block" style="width:50%;">
       <!-- Material registration -->
@@ -8,7 +8,7 @@
             <h4>Register</h4>
             <ul class="card-actions">
                 <li>
-                    <input type="checkbox" class="hide_company" name="company_conf"><span></span>Company?
+                    {{-- <input type="checkbox" class="hide_company" name="company_conf" /><span></span>Company? --}}
 
                 </li>
                 <li>
@@ -26,6 +26,11 @@
                 @endif
             <form class="form-horizontal m-t-sm" action="{{route('rigster.user')}}" method="post">
                 @csrf
+                {{-- <input type="checkbox" class="hide_company" name="company_conf" /><span></span>Company? --}}
+                <label>Company ?</label><br/>
+                    <input type="checkbox" name="company_conf" class="switch_1 hide_company">
+            <hr/>
+
                 <div class="form-group">
                     <div class="col-xs-6">
                         <div class="form-material">
@@ -43,6 +48,8 @@
                 <div class="form-group hide-company-input">
                     <div class="col-xs-12">
                         <div class="form-material input-group">
+                            {{-- <input name="companyConf" class="for_conf" value="true" /> --}}
+
                             <input  value='{{old('company_name')}}' class="form-control" type="text" id="register5-account" name="company_name" placeholder="Company's name..." />
                             <label for="register5-account">Company</label>
                             <span class="input-group-addon">.example.com</span>
@@ -116,6 +123,7 @@
 <script>
 $(document).ready(function(){
     $('.hide-company-input').hide()
+    $('.for_conf').hide()
 
     // Logic To Show and Hide the Company Input
     $(".hide_company").click(function(){

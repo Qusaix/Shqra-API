@@ -77,6 +77,8 @@ class Auth extends Controller
         $user->assignRole($role);
 
         }else{
+            return "Else";
+
             $role = Role::find(3);
             $user->save();
             $user->assignRole($role);

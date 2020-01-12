@@ -32,6 +32,9 @@
         <link rel="stylesheet" id="css-bootstrap" href="{{asset('assets_d/css/bootstrap.css')}}" />
         <link rel="stylesheet" id="css-app" href="{{asset('assets_d/css/app.css')}}" />
         <link rel="stylesheet" id="css-app-custom" href="{{asset('assets_d/css/app-custom.css')}}" />
+        <link rel="stylesheet" id="css-app-custom" href="{{asset('assets_d/css/custom-css.css')}}" />
+
+
         <!-- End Stylesheets -->
     </head>
 
