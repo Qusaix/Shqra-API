@@ -24,11 +24,12 @@ class CountdownController extends Controller
 
     public function store(Request $request)
     {
+        #return $request;
         $product = Post::find(1);
 
         $countdown = new Countdown;
-        $countdown->month = "January"; #$request->month;
-        $countdown->day = "13";#$request->day;
+        $countdown->month = $request->month;
+        $countdown->day = $request->day;
         $countdown->sold = "50";
         $countdown->old_price = "14";#$product->price;
         $countdown->new_price = "500";
@@ -39,8 +40,8 @@ class CountdownController extends Controller
         $product->save();
         $countdown->products()->associate($product);
 
-        return $countdown->products->Title;
+       # return $countdown->products->Title;
 
-        return "Will Down";
+        return back();
     }
 }

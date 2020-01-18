@@ -91,7 +91,7 @@
 					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
-							<div class="logo"><a href="#">OneTech</a></div>
+							<div class="logo"><a href="http://127.0.0.1:8000/">OneTech</a></div>
 						</div>
 					</div>
 
@@ -126,11 +126,11 @@
 					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
 						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
-								<div class="wishlist_icon"><img src="{{asset('images/heart.png')}}" alt=""></div>
+								{{-- <div class="wishlist_icon"><img src="{{asset('images/heart.png')}}" alt=""></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"><a href="#">Wishlist</a></div>
 									<div class="wishlist_count">115</div>
-								</div>
+								</div> --}}
 							</div>
 
 							<!-- Cart -->
@@ -185,7 +185,7 @@
 								<ul class="standard_dropdown main_nav_dropdown">
 									<li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
 									
-									<li class="hassubs">
+									{{-- <li class="hassubs">
 										<a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
 										<ul>
 											<li>
@@ -200,9 +200,9 @@
 											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
 											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
-									</li>
+									</li> --}}
 									
-									<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+									{{-- <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li> --}}
 									<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
 								</ul>
 							</div>

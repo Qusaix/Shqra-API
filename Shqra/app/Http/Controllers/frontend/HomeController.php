@@ -20,6 +20,8 @@ class HomeController extends Controller
         $onSale = Featured::where('new_price',"!=",null)->get();
         $countdowns = Countdown::get();
         $ads = Ads::find(1);
+        $slider = Post::take(3)->get();
+
 
       
 
@@ -28,7 +30,8 @@ class HomeController extends Controller
         'ads',
         'featured',
         'onSale',
-        'countdowns'
+        'countdowns',
+        "slider"
     ));
     }
 }

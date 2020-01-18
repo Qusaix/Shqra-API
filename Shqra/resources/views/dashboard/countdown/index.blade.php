@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.layout')
 @section('section')
-<h2 class="section-title">Countdown</h2>
+<h2 class="section-title">Countdown</h2> 
 <div class="row">
     <div class="col-12" style="margin-left:3%; margin-right:3%;">
         <div class="card">
@@ -9,7 +9,7 @@
       @if($countdown)
       <a  class="text-light" href="{{route('dashboard.ads.edit',1)}}"> Update </a>
     @else
-      <a class="text-light" href="{{route('dashboard.ads.create')}}"> Create </a>
+      <a class="text-light" href="{{route('dashboard.countdown.create')}}"> Create </a>
 
       @endif
   </button>
