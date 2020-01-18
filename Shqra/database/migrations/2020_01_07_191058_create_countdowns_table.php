@@ -15,13 +15,14 @@ class CreateCountdownsTable extends Migration
     {
         Schema::create('countdowns', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('days');
-            $table->string('hours')->nullable();
-            $table->string('minutes')->nullable();
+            $table->string('day');
+            $table->string('month');
             $table->string('sold')->nullable();
             $table->string('available');
             $table->string('old_price');
             $table->string('new_price');
+            $table->string('product_id')->nullable();
+
 
             $table->timestamps();
         });

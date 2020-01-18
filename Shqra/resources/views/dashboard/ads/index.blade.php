@@ -94,8 +94,13 @@
 
    {{-- AD  --}}
      <div class="card-content">
+        <button  type="button" class="btn btn-primary"  aria-expanded="false">
 
-       @if($Ad)
+          <a  class="text-light" href="{{route('dashboard.countdown.create')}}"> Create </a> 
+        
+  
+          </button>
+        @if($Ad)
 
        <img style="width:45%; float:left;" src='{{asset('uploads/'.$Ad->image)}}' alt="A photograph of sliced kiwifruit on a while plate" class="curve">
 
@@ -208,7 +213,7 @@
 
 $(document).ready(function() {
   console.log({!! json_encode($Ad->id) !!})
-        var huh  = new Date(Date.UTC(2020,12,{!! json_encode($Ad->id) !!}));
+        var huh  = new Date(Date.UTC(2020,2,{!! json_encode($Ad->id) !!}));
         var duh  = new Date();
         var wha  = huh.getTime()/1000 - duh.getTime()/1000;
         console.log(huh);

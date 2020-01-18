@@ -94,25 +94,25 @@
 								
 								<!-- Deals Slider -->
 								<div class="owl-carousel owl-theme deals_slider">
-									
-									<!-- Deals Item -->
+								@foreach ($countdowns as $date)
+											<!-- Deals Item -->
 									<div class="owl-item deals_item">
 										<div class="deals_image"><img src="images/deals.png" alt=""></div>
 										<div class="deals_content">
 											<div class="deals_info_line d-flex flex-row justify-content-start">
-												<div class="deals_item_category"><a href="#">Headphones</a></div>
-												<div class="deals_item_price_a ml-auto">$300</div>
+												<div class="deals_item_category"><a href="#">{{$date->products->Title}}</a></div>
+												<div class="deals_item_price_a ml-auto">${{$date->old_price}}</div>
 											</div>
 											<div class="deals_info_line d-flex flex-row justify-content-start">
-												<div class="deals_item_name">Beoplay H7</div>
-												<div class="deals_item_price ml-auto">$225</div>
+												<div class="deals_item_name">{{$date->products->Title}}</div>
+												<div class="deals_item_price ml-auto">${{$date->new_price}}</div>
 											</div>
 											<div class="available">
 												<div class="available_line d-flex flex-row justify-content-start">
-													<div class="available_title">Available: <span>6</span></div>
-													<div class="sold_title ml-auto">Already sold: <span>28</span></div>
+													<div class="available_title">Available: <span>{{$date->available}}</span></div>
+													<div class="sold_title ml-auto">Already sold: <span>{{$date->sold}}</span></div>
 												</div>
-												<div class="available_bar"><span style="width:17%"></span></div>
+												<div class="available_bar"><span style="width:{{$date->sold}}%"></span></div>
 											</div>
 											<div class="deals_timer d-flex flex-row align-items-center justify-content-start">
 												<div class="deals_timer_title_container">
@@ -120,8 +120,8 @@
 													<div class="deals_timer_subtitle">Offer ends in:</div>
 												</div>
 												<div class="deals_timer_content ml-auto">
-													<div class="deals_timer_box clearfix" data-target-time="">
-														<div class="deals_timer_unit">
+													<div class="deals_timer_box clearfix" data-target-time="{{$date->month}} {{$date->day}} 2020">
+														<div class="deals_timer_unit"> 
 															<div id="deals_timer1_hr" class="deals_timer_hr"></div>
 															<span>hours</span>
 														</div>
@@ -139,8 +139,10 @@
 										</div>
 									</div>
 	
+								@endforeach
+								
 									<!-- Deals Item -->
-									<div class="owl-item deals_item">
+									{{-- <div class="owl-item deals_item">
 										<div class="deals_image"><img src="images/deals.png" alt=""></div>
 										<div class="deals_content">
 											<div class="deals_info_line d-flex flex-row justify-content-start">
@@ -181,10 +183,10 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> --}}
 	
 									<!-- Deals Item -->
-									<div class="owl-item deals_item">
+									{{-- <div class="owl-item deals_item">
 										<div class="deals_image"><img src="images/deals.png" alt=""></div>
 										<div class="deals_content">
 											<div class="deals_info_line d-flex flex-row justify-content-start">
@@ -226,10 +228,10 @@
 											</div>
 										</div>
 									</div>
-	
+	 --}}
 	
 										<!-- Deals Item -->
-										<div class="owl-item deals_item">
+										{{-- <div class="owl-item deals_item">
 											<div class="deals_image"><img src="images/deals.png" alt=""></div>
 											<div class="deals_content">
 												<div class="deals_info_line d-flex flex-row justify-content-start">
@@ -270,7 +272,7 @@
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> --}}
 	
 								</div>
 	
@@ -311,7 +313,7 @@
 													<div class="product_price discount">${{$product->old_price}}</div>
 
 													@endif
-													<div class="product_name"><div><a href="product.html">{{$product->product_name}}</a></div></div>
+													<div class="product_name"><div><a href="{{route('products',$product->product->id)}}">{{$product->product_name}}</a></div></div>
 													<div class="product_extras">
 														{{-- <div class="product_color">
 															images/featured_1.png
@@ -3420,5 +3422,23 @@
 				</div>
 			</div>
 		</div>
+
+
+<script>
+	$(document).ready(function() {
+  console.log({!! json_encode($ads->id) !!})
+        var huh  = new Date(Date.UTC(2020,2,{!! json_encode($ads->id) !!}));
+        var duh  = new Date();
+        var wha  = huh.getTime()/1000 - duh.getTime()/1000;
+        console.log(huh);
+
+
+        var clock = $('.your-clock').FlipClock(wha,{
+            clockFace: 'DailyCounter',
+            countdown: true
+        });
+})
+ 
+</script>		
 	
 @endsection

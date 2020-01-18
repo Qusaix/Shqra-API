@@ -90,6 +90,10 @@ Route::namespace('dashboard')->middleware(['auth','role:admin'])->prefix('dashbo
         #Show Countdown Routes
         Route::get('/','CountdownController@index')->name('dashboard.countdown');
 
+        // Create Countdown Routes
+        Route::get('/create','CountdownController@create')->name('dashboard.countdown.create');
+        Route::post('/store','CountdownController@store')->name('dashboard.countdown.store');
+        
     });
 
 

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Categores;
 use App\Ads;
 use App\Featured;
+use App\Countdown;
+use App\Post;
 
 
 class HomeController extends Controller
@@ -16,14 +18,17 @@ class HomeController extends Controller
         $categores = Categores::get();
         $featured = Featured::where('featured',1)->get();
         $onSale = Featured::where('new_price',"!=",null)->get();
-
+        $countdowns = Countdown::get();
         $ads = Ads::find(1);
+
+      
 
         return view('index',compact(
         'categores',
         'ads',
         'featured',
-        'onSale'
+        'onSale',
+        'countdowns'
     ));
     }
 }

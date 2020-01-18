@@ -14,11 +14,11 @@ class Countdown extends Model
     * @var array
     */ 
 
-    protected $fillable = ['days','hours','minutes','sold','available','old_price','new_price',];
+    protected $fillable = ['day','month','sold','available','old_price','new_price',];
 
 
     public function products()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class,'product_id');
     }
 }

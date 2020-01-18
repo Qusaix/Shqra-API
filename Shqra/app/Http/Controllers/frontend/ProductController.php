@@ -18,7 +18,7 @@ class ProductController extends Controller
         $product = Post::find($id);
         $rating = Rating::where('product_id',$product->id)->avg('rating');
 
-
+        #return $product;
         return view('products.index',compact('categores','product','product_categore','rating'));
 
     }

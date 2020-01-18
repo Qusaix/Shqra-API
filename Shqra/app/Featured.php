@@ -21,6 +21,6 @@ class Featured extends Model
 
     public function product()
     {
-        return $this->belongsToMany(Post::class);
+        return $this->hasOne(Post::class,"featured_id");
     }
 }

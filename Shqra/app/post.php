@@ -57,7 +57,7 @@ class Post extends Model
 
     public function countdown()
     {
-        return $this->belongsTo(Countdown::class);
+        return $this->hasOne(Countdown::class,'product_id');
     }
     
 }

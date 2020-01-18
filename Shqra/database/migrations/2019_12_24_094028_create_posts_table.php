@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->longText('description');
             $table->string('price');
             $table->longText('image');
+            $table->string("featured_id")->nullable();
             $table->string('categores_id')->nullable();
             $table->timestamps();
             
