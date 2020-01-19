@@ -109,6 +109,11 @@ Route::namespace('frontend')->group(function(){
 
     });
 
+    #Categores Routes
+    Route::prefix('categores')->group(function(){
+        Route::get('/','CategoresController@index')->name('categores');
+    });
+
    
 
 });

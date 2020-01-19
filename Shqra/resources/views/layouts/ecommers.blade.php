@@ -17,6 +17,10 @@
 <link rel="stylesheet" type="text/css" href="{{asset('styles/product_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/product_responsive.css')}}">
 <link rel="stylesheet" id="custom-css" href="{{asset('assets_d/css/custom-css.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_responsive.css')}}">
+
 
 
 
@@ -311,7 +315,15 @@
 		</div>
 
 	</header>
-	
+	@if(Route::currentRouteName() == "categores")
+	<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{asset('images/shop_background.jpg')}}"></div>
+		<div class="home_overlay"></div>
+		<div class="home_content d-flex flex-column align-items-center justify-content-center">
+			<h2 class="home_title">Computers</h2>
+		</div>
+	</div>
+	@endif
 	@yield('content')
 
 	<!-- Footer -->
@@ -431,6 +443,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{asset('plugins/easing/easing.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
 <script src="{{asset('assets_d/js/custom-scripts.js')}}"></script>
+<script src="{{asset('plugins/Isotope/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
+<script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
+<script src="{{asset('js/shop_custom.js')}}"></script>
+
 
 </body>
 
