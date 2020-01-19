@@ -10,15 +10,9 @@
                     <div class="sidebar_section">
                         <div class="sidebar_title">Categories</div>
                         <ul class="sidebar_categories">
-                            <li><a href="#">Computers & Laptops</a></li>
-                            <li><a href="#">Cameras & Photos</a></li>
-                            <li><a href="#">Hardware</a></li>
-                            <li><a href="#">Smartphones & Tablets</a></li>
-                            <li><a href="#">TV & Audio</a></li>
-                            <li><a href="#">Gadgets</a></li>
-                            <li><a href="#">Car Electronics</a></li>
-                            <li><a href="#">Video Games & Consoles</a></li>
-                            <li><a href="#">Accessories</a></li>
+                            @foreach ($categores as $categore )
+                            <li><a href="#">{{$categore->Title}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="sidebar_section filter_by_section">
@@ -64,7 +58,7 @@
 
                 <div class="shop_content">
                     <div class="shop_bar clearfix">
-                        <div class="shop_product_count"><span>186</span> products found</div>
+                        <div class="shop_product_count"><span>{{$products->total()}}</span> products found</div>
                         <div class="shop_sorting">
                             <span>Sort by:</span>
                             <ul>
@@ -81,10 +75,28 @@
                     </div>
 
                     <div class="product_grid">
-                        <div class="product_grid_border"></div>
+                        <div class="product_grid_border"></div> 
+
+                        @foreach ($products as $product)
+                        
+                        <div class="product_item">
+                            <div class="product_border"></div>
+                            <div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width:150px;" src="{{$product->image}}" alt="{{$product->title}}"></div>
+                            <div class="product_content">
+                                <div class="product_price">${{$product->price}}</div>
+                                <div class="product_name"><div><a href="{{route('products',$product->id)}}" tabindex="0">{{$product->Title}}</a></div></div>
+                            </div>
+                            {{-- <div class="product_fav"><i class="fas fa-heart"></i></div> --}}
+                            <ul class="product_marks">
+                                <li class="product_mark product_discount">-25%</li>
+                                <li class="product_mark product_new">new</li>
+                            </ul>
+                        </div>
+                            
+                        @endforeach
 
                         <!-- Product Item -->
-                        <div class="product_item is_new">
+                        {{-- <div class="product_item is_new">
                             <div class="product_border"></div>
                             <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/new_5.jpg" alt=""></div>
                             <div class="product_content">
@@ -96,10 +108,10 @@
                                 <li class="product_mark product_discount">-25%</li>
                                 <li class="product_mark product_new">new</li>
                             </ul>
-                        </div>
+                        </div> --}}
 
                         <!-- Product Item -->
-                        <div class="product_item discount">
+                        {{-- <div class="product_item discount">
                             <div class="product_border"></div>
                             <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_1.png" alt=""></div>
                             <div class="product_content">
@@ -111,25 +123,13 @@
                                 <li class="product_mark product_discount">-25%</li>
                                 <li class="product_mark product_new">new</li>
                             </ul>
-                        </div>
+                        </div> --}}
 
                         <!-- Product Item -->
-                        <div class="product_item">
-                            <div class="product_border"></div>
-                            <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_2.png" alt=""></div>
-                            <div class="product_content">
-                                <div class="product_price">$379</div>
-                                <div class="product_name"><div><a href="#" tabindex="0">Apple iPod shuffle</a></div></div>
-                            </div>
-                            <div class="product_fav"><i class="fas fa-heart"></i></div>
-                            <ul class="product_marks">
-                                <li class="product_mark product_discount">-25%</li>
-                                <li class="product_mark product_new">new</li>
-                            </ul>
-                        </div>
+                       
 
                         <!-- Product Item -->
-                        <div class="product_item">
+                        {{-- <div class="product_item">
                             <div class="product_border"></div>
                             <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_3.png" alt=""></div>
                             <div class="product_content">
@@ -381,7 +381,7 @@
                                 <li class="product_mark product_discount">-25%</li>
                                 <li class="product_mark product_new">new</li>
                             </ul>
-                        </div>
+                        </div> --}}
 
                     </div>
 
@@ -390,11 +390,13 @@
                     <div class="shop_page_nav d-flex flex-row">
                         <div class="page_prev d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-left"></i></div>
                         <ul class="page_nav d-flex flex-row">
-                            <li><a href="#">1</a></li>
+                            {{$products->links()}}
+
+                            {{-- <li><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
                             <li><a href="#">...</a></li>
-                            <li><a href="#">21</a></li>
+                            <li><a href="#">21</a></li> --}}
                         </ul>
                         <div class="page_next d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-right"></i></div>
                     </div>
