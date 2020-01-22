@@ -55,10 +55,19 @@
             <div class="col-lg-9">
 
                 <!-- Shop Content -->
+                @if($products->count() == 0)
+                
+                <div class="alert alert-danger" role="alert">There is No Products available</div>
 
+                @else
                 <div class="shop_content">
                     <div class="shop_bar clearfix">
+                        @if(isset($all_products_one))
+                        <div class="shop_product_count"><span>{{$all_products_one}}</span> products found</div>
+                        @else
                         <div class="shop_product_count"><span>{{$products->total()}}</span> products found</div>
+
+                        @endif
                         <div class="shop_sorting">
                             <span>Sort by:</span>
                             <ul>
@@ -76,7 +85,7 @@
 
                     <div class="product_grid">
                         <div class="product_grid_border"></div> 
-
+                       
                         @foreach ($products as $product)
                         
                         <div class="product_item">
@@ -390,8 +399,9 @@
                     <div class="shop_page_nav d-flex flex-row">
                         <div class="page_prev d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-left"></i></div>
                         <ul class="page_nav d-flex flex-row">
+                            @if(!isset($all_products_one))
                             {{$products->links()}}
-
+                            @endif
                             {{-- <li><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
@@ -402,6 +412,9 @@
                     </div>
 
                 </div>
+                @endif
+
+               
 
             </div>
         </div>

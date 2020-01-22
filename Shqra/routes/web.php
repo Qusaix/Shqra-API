@@ -111,7 +111,15 @@ Route::namespace('frontend')->group(function(){
 
     #Categores Routes
     Route::prefix('categores')->group(function(){
-        Route::get('/','CategoresController@index')->name('categores');
+        Route::get('/{id?}','CategoresController@index')->name('categores');
+    });
+
+    #Cart Routes
+    Route::prefix('cart')->group(function(){
+
+        Route::get('/{id}','CartController@my_cart')->name('cart');
+        Route::post('/store','CartController@add_product')->name('add_product_cart');
+
     });
 
    

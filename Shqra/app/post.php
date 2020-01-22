@@ -59,5 +59,10 @@ class Post extends Model
     {
         return $this->hasOne(Countdown::class,'product_id');
     }
+
+    public function cart()
+    {
+        return $this->belongsToMany(Cart::class);
+    }
     
 }

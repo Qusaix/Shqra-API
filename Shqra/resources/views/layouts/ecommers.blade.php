@@ -14,12 +14,18 @@
 <link rel="stylesheet" type="text/css" href="{{asset('plugins/slick-1.8.0/slick.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('styles/product_styles.css')}}">
+ <link rel="stylesheet" type="text/css" href="{{asset('styles/product_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/product_responsive.css')}}">
 <link rel="stylesheet" id="custom-css" href="{{asset('assets_d/css/custom-css.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_styles.css')}}">
+@if(Request::is('categores')||Request::is('categores/*'))<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_styles.css')}}">@endif
 <link rel="stylesheet" type="text/css" href="{{asset('styles/shop_responsive.css')}}">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+@if(Request::is('cart/*'))
+<link rel="stylesheet" type="text/css" href="{{asset('styles/cart_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/cart_responsive.css')}}">
+@endif
+
 
 
 
