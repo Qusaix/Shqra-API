@@ -321,7 +321,10 @@
 															<input type="radio" name="product_color" style="background:#000000">
 															<input type="radio" name="product_color" style="background:#999999">
 														</div> --}}
-														<button class="product_cart_button">Explore</button>
+														<form action="{{route('add_product_cart',$product->product->id)}}" method="post">
+															@csrf
+														<button type="submit" class="product_cart_button">Add to Cart</button>
+														</form>
 													</div>
 												</div>
 												<div class="product_fav"><i class="fas fa-heart"></i></div>
@@ -998,7 +1001,10 @@
 																<input type="radio" name="product_color" style="background:#000000">
 																<input type="radio" name="product_color" style="background:#999999">
 															</div> --}}
-															<button class="product_cart_button">Add to Cart</button>
+															<form action="{{route('add_product_cart',$p->id)}}" method="POST">
+																@csrf 
+															<button type="submit" class="product_cart_button">Add to Cart</button>
+															</form>
 														</div>
 													</div>
 													<div class="product_fav"><i class="fas fa-heart"></i></div>
@@ -3087,10 +3093,11 @@
 
 <script>
 	$(document).ready(function() {
-  console.log({!! json_encode($ads->id) !!})
+  		console.log({!! json_encode($ads->id) !!})
         var huh  = new Date(Date.UTC(2020,2,{!! json_encode($ads->id) !!}));
         var duh  = new Date();
         var wha  = huh.getTime()/1000 - duh.getTime()/1000;
+		var product_id = "";
         console.log(huh);
 
 
@@ -3098,6 +3105,25 @@
             clockFace: 'DailyCounter',
             countdown: true
         });
+
+	// $.ajax({
+
+	// 	type:'POST',
+
+	// 	url:'{{route('add_product_cart',1)}}',
+
+	// 	data:{name:name, password:password, email:email},
+
+	// 	success:function(data){
+
+	// 	alert(data.success);
+
+	// 	}
+
+	// );
+
+
+
 })
  
 </script>		

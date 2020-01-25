@@ -21,10 +21,11 @@
 @if(Request::is('categores')||Request::is('categores/*'))<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_styles.css')}}">@endif
 <link rel="stylesheet" type="text/css" href="{{asset('styles/shop_responsive.css')}}">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-@if(Request::is('cart/*'))
+@if(Request::is('cart'))
 <link rel="stylesheet" type="text/css" href="{{asset('styles/cart_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/cart_responsive.css')}}">
 @endif
+
 
 
 
@@ -144,18 +145,22 @@
 							</div>
 
 							<!-- Cart -->
+							@if(Auth::user())
+							@if(Auth::user()->cart)
 							<div class="cart">
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
 										<img src="{{asset('images/cart.png')}}" alt="">
-										<div class="cart_count"><span>10</span></div>
+										<div class="cart_count"><span>{{Auth::user()->cart->products->count()}}</span></div>
 									</div>
 									<div class="cart_content">
-										<div class="cart_text"><a href="#">Cart</a></div>
-										<div class="cart_price">$85</div>
+										<div class="cart_text"><a href="{{route('cart')}}">Cart</a></div>
+										<div class="cart_price">${{Auth::user()->cart->products->sum("price")}}</div>
 									</div>
 								</div>
 							</div>
+							@endif
+							@endif
 						</div>
 					</div>
 				</div>
@@ -453,6 +458,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
 <script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
 <script src="{{asset('js/shop_custom.js')}}"></script>
+@include('sweetalert::alert')
+
 
 
 </body>

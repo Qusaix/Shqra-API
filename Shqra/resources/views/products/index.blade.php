@@ -37,7 +37,7 @@
                       @endif
                                           <div class="product_text"><p>{{$product->description}}</p></div>
                     <div class="order_info d-flex flex-row">
-                        <form action="#">
+                        <form action="{{route('add_product_cart',$product->id)}}" method="post">
                             <div class="clearfix" style="z-index: 1000;">
 
                                 <!-- Product Quantity -->
@@ -69,7 +69,7 @@
 
                             <div class="product_price">${{$product->price}}</div>
                             <div class="button_container">
-                                <button type="button" class="button cart_button">Add to Cart</button>
+                                <button type="submit" class="button cart_button">Add to Cart</button>
                                 <div class="product_fav"><i class="fas fa-heart"></i></div>
                             </div>
                             

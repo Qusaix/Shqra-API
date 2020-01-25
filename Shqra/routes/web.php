@@ -117,8 +117,9 @@ Route::namespace('frontend')->group(function(){
     #Cart Routes
     Route::prefix('cart')->group(function(){
 
-        Route::get('/{id}','CartController@my_cart')->name('cart');
-        Route::post('/store','CartController@add_product')->name('add_product_cart');
+        Route::get('/','CartController@my_cart')->name('cart');
+        Route::post('add/{id}','CartController@add_product')->name('add_product_cart')->middleware('auth');
+        Route::post('check_out','CartController@check_out')->name('check_out')->middleware('auth');
 
     });
 
