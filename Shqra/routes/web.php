@@ -115,10 +115,14 @@ Route::namespace('frontend')->group(function(){
     });
 
     #Cart Routes
-    Route::prefix('cart')->group(function(){
+    Route::prefix('cart')->middleware(['auth'])->group(function(){
 
         Route::get('/','CartController@my_cart')->name('cart');
-        Route::post('add/{id}','CartController@add_product')->name('add_product_cart')->middleware('auth');
+
+        Route::post('add/{id}','CartController@add_product')->name('add_product_cart');
+
+        Route::post('remove/{cart_id}/{product_id?}','CartController@remove_product')->name('remove_product_cart');
+
         Route::post('check_out','CartController@check_out')->name('check_out')->middleware('auth');
 
     });

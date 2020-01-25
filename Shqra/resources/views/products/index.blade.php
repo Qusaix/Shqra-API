@@ -38,6 +38,7 @@
                                           <div class="product_text"><p>{{$product->description}}</p></div>
                     <div class="order_info d-flex flex-row">
                         <form action="{{route('add_product_cart',$product->id)}}" method="post">
+                            @csrf
                             <div class="clearfix" style="z-index: 1000;">
 
                                 <!-- Product Quantity -->

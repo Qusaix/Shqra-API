@@ -816,7 +816,7 @@
 								<div class="popular_categories_prev popular_categories_nav"><i class="fas fa-angle-left ml-auto"></i></div>
 								<div class="popular_categories_next popular_categories_nav"><i class="fas fa-angle-right ml-auto"></i></div>
 							</div>
-							<div class="popular_categories_link"><a href="#">full catalog</a></div>
+							<div class="popular_categories_link"><a href="{{route('categores')}}">full catalog</a></div>
 						</div>
 					</div>
 					
@@ -2597,7 +2597,7 @@
 	
 		<!-- Adverts -->
 	
-		<div class="adverts">
+		{{-- <div class="adverts">
 			<div class="container">
 				<div class="row">
 	
@@ -2644,7 +2644,7 @@
 				</div>
 			</div>
 		</div>
-	
+	 --}}
 		<!-- Trends -->
 	
 		{{-- <div class="trends">

@@ -48,8 +48,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('images/phone.png')}}" alt=""></div>+38 068 005 3570</div>
-						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('images/mail.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('images/phone.png')}}" alt=""></div>+38 06648 005 3570</div>
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('images/mail.png')}}" alt=""></div><a href="mailto:qusaiznemat6@gmail.com">qusaiznemat6@gmail.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_menu">
 								<ul class="standard_dropdown top_bar_dropdown">
@@ -189,7 +189,7 @@
 									<h3>There Is No Categores</h3>
 									@endif
 									@foreach ($categores as $categore )
-								<li><a href="#">{{$categore->Title}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
+								<li><a href="{{route('categores',$categore->id)}}">{{$categore->Title}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
 									@endforeach
 								</ul>
 							</div>
@@ -198,7 +198,7 @@
 
 							<div class="main_nav_menu ml-auto">
 								<ul class="standard_dropdown main_nav_dropdown">
-									<li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="{{route('home')}}">Home<i class="fas fa-chevron-down"></i></a></li>
 									
 									{{-- <li class="hassubs">
 										<a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
@@ -331,7 +331,12 @@
 		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{asset('images/shop_background.jpg')}}"></div>
 		<div class="home_overlay"></div>
 		<div class="home_content d-flex flex-column align-items-center justify-content-center">
-			<h2 class="home_title">Computers</h2>
+			@if(Request::is('categores'))
+			<h2 class="home_title">All Categores</h2>
+			@else
+			<h2 class="home_title">{{$chosen_categore->Title}}</h2>
+
+			@endif
 		</div>
 	</div>
 	@endif
@@ -370,16 +375,16 @@
 					<div class="footer_column">
 						<div class="footer_title">Find it Fast</div>
 						<ul class="footer_list">
-							<li><a href="#">Computers & Laptops</a></li>
-							<li><a href="#">Cameras & Photos</a></li>
-							<li><a href="#">Hardware</a></li>
-							<li><a href="#">Smartphones & Tablets</a></li>
-							<li><a href="#">TV & Audio</a></li>
+							@foreach ($categores as $categore )
+							<li><a href="{{route('categores',$categore->id)}}">{{$categore->Title}}</a></li>
+
+							@endforeach
+						
 						</ul>
-						<div class="footer_subtitle">Gadgets</div>
+						{{-- <div class="footer_subtitle">Gadgets</div>
 						<ul class="footer_list">
 							<li><a href="#">Car Electronics</a></li>
-						</ul>
+						</ul> --}}
 					</div>
 				</div>
 

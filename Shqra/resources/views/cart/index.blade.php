@@ -14,6 +14,7 @@
 							<ul class="cart_list">
 								 @foreach (Auth::user()->cart->products as $pro )
 								 <li class="cart_item clearfix">
+
 									<div class="cart_item_image"><img src="{{$pro->image}}" alt=""></div>
 									<div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
 										<div class="cart_item_name cart_info_col">
@@ -36,8 +37,14 @@
 											<div class="cart_item_title">Total</div>
 											<div class="cart_item_text">${{$pro->price}}</div>
 										</div>
+										<form method="POST" action="{{route('remove_product_cart',[Auth::user()->cart->id,$pro->id] )}}">
+											@csrf
+										<button type="submit" style="background:none; border:none;"><i class="fa fa-times" aria-hidden="true"></i></button>
+										</form>
 									</div>
-                                </li>
+									
+								</li>
+								
 								@endforeach
 
 								{{-- <li class="cart_item clearfix">

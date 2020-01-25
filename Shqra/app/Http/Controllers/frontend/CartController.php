@@ -15,11 +15,15 @@ use Auth;
 class CartController extends Controller
 {
 
-    public function my_cart(){
-
+    public function my_cart()
+    {
+        // Get All Categores For The Nav
         $categores = Categores::get();
+
+        // Find The User Login User
         $user = User::find(Auth::user()->id);
-        $product = Post::find(1); #$request->product_id);
+
+        // To Get All The Product Inside The The User Cart 
         $prdoucts_inside_cart = $user->cart->products;
 
         
@@ -33,6 +37,7 @@ class CartController extends Controller
 
         $user = User::find(Auth::user()->id); 
         $product = Post::find($id);
+
         // Create New Cart if User Don't Have 
         if(!$user->cart){
 
@@ -51,9 +56,19 @@ class CartController extends Controller
 
     
         }else{
+            foreach($user->cart->products as $product_P){
+                
+                if($product->id == $product_P->id){
+                    
+                    Alert::toast('The Product Already in Your Cart','scuess');
+                    return back();
+                }
+            }
             $cart = Cart::find($user->cart->id);
+            
             // If The User Already Have Cart     
             $product->cart()->attach($cart);
+
             return back();
 
             
@@ -76,6 +91,25 @@ class CartController extends Controller
 
         return back();
 
+    }
+
+    public function remove_product( $cart_id , $product_id = null )
+    {
+        #return $cart_id;
+        // Find The User Login User
+        $user = User::find(Auth::user()->id);
+        foreach($user->cart->products as $product){
+
+            if($product_id == $product->id){
+
+                $product->cart()->detach();
+            }
+
+
+        }
+        return back();
+
+        
     }
 
 

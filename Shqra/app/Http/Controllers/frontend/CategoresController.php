@@ -14,11 +14,11 @@ class CategoresController extends Controller
         $categores  = Categores::get();
 
         if($id){
-            $categore = Categores::find($id);
-            $products =  $categore->product;
+            $chosen_categore = Categores::find($id);
+            $products =  $chosen_categore->product;
             $all_products_one =$products->count();
 
-            return view('categoers.index',compact('categores','products','id','all_products_one'));
+            return view('categoers.index',compact('categores','products','id','all_products_one','chosen_categore'));
 
             
         }else{

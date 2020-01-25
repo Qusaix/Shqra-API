@@ -10,8 +10,9 @@
                     <div class="sidebar_section">
                         <div class="sidebar_title">Categories</div>
                         <ul class="sidebar_categories">
+                            <li><a href="{{route('categores')}}">All Categores</a></li>
                             @foreach ($categores as $categore )
-                            <li><a href="#">{{$categore->Title}}</a></li>
+                            <li><a href="{{route('categores',$categore->id)}}">{{$categore->Title}}</a></li>
                             @endforeach
                         </ul>
                     </div>
