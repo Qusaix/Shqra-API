@@ -17,11 +17,11 @@ class Rating extends Model
 
     public function product()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class,'product_id');
     }
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'users_id');
     }
 }

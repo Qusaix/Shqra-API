@@ -66,12 +66,27 @@ class User extends Authenticatable implements JWTSubject
 
     public function rating()
     {
-        return $this->belongToMany(Rating::class);
+        return $this->hasMany(Rating::class,'users_id');
     }
 
     public function cart()
     {
         return $this->belongsTo(Cart::class);
+    }
+
+    // Check if i have a review 
+    public function check_review($product_id)
+    {
+        foreach(auth()->user()->rating as $rate)
+            {
+                if($rate->product_id == $product_id)
+                {
+                    return $true = $rate->rating;
+                }
+                 
+            }
+
+            return "0";
     }
 
     

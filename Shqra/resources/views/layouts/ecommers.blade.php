@@ -464,6 +464,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
 <script src="{{asset('js/shop_custom.js')}}"></script>
 @include('sweetalert::alert')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 
 
 

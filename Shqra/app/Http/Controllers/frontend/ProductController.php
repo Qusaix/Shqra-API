@@ -16,9 +16,17 @@ class ProductController extends Controller
 
         $product_categore = Post::my_categore($id)->first();
         $product = Post::find($id);
-        $rating = Rating::where('product_id',$product->id)->avg('rating');
+        $rating = $product->rating->avg('rating');
+        
 
-        return view('products.index',compact('categores','product','product_categore','rating'));
+        if(auth()->user())
+        {
+            $true =  auth()->user()->check_review($product->id);
+        }
+       
+       
+
+        return view('products.index',compact('categores','product','product_categore','rating','true'));
 
     }
 }

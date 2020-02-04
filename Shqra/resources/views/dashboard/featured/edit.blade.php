@@ -144,6 +144,8 @@
         $star_rating.on('click', function(e) {
         $star_rating.siblings('input.rating-value').val($(this).data('rating'));
        var rating =  $("#rating").val();
+
+       var id = {!! json_encode($featured->id) !!};
        
 
      //  console.log(rating)
@@ -157,7 +159,10 @@
             },
            url:'{{route('dashboard.rating.store')}}',
 
-           data:{rating:rating,},
+           data:{
+               rating:rating,
+               product_id: id 
+               },
 
            success:function(data){
             // return console.log(data);
@@ -165,7 +170,7 @@
 
            },
            error:function(error){
-               console.log(error);
+               console.log(error.responseJSON);
            }
 
         });

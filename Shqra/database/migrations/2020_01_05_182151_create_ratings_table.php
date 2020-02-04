@@ -15,7 +15,7 @@ class CreateRatingsTable extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_id');
+            $table->string('users_id')->nullable();
             $table->string('product_id');
             $table->string('rating');
             $table->string('msg')->nullable();

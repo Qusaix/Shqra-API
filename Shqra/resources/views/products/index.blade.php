@@ -23,7 +23,7 @@
                 <div class="product_description">
                     <div class="product_category">{{$product_categore->Title}}</div>
                     <div class="product_name">{{$product->Title}}</div>
-                    @if($rating >0 )
+                    @if($rating > 0 )
                     <div class="star-rating">
                         <span class="fa fa-star-o" data-rating="1"></span>
                         <span class="fa fa-star-o" data-rating="2"></span>
@@ -32,8 +32,67 @@
                         <span class="fa fa-star-o" data-rating="5"></span>
                         <input type="hidden" name="whatever1" class="rating-value" value="{{$rating}}">
                       </div>
+                    
+                      @if($true != "0")
+                      <h3>Your Review is {{$true}}/5</h3>
+                      @endif
+
+                                            <!-- Modal -->
+                        <div class="modal fade" id="add_rating" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add Rating</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                
+                                    <input id="user_rating" class="form-control" style="width: 10%;" name="user-rating" />/5
+
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button id="send_rating" type="button" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                       @else
-                      No Rating Yet
+                      No Rating Yet<br/>
+
+                      {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_rating" style="margin-top:1%;">
+                        Add Your Rating
+                      </button> --}}
+
+                      @if($true == "0")
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_rating" style="margin-top:1%;">
+                        Add Your Rating
+                      </button>
+                      @endif
+
+                      <div class="modal fade" id="add_rating" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Rating</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            
+                                <input id="user_rating" class="form-control" style="width: 10%;" name="user-rating" />/5
+
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button id="send_rating" type="button" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                       @endif
                                           <div class="product_text"><p>{{$product->description}}</p></div>
                     <div class="order_info d-flex flex-row">
@@ -82,4 +141,94 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $('#add_rating').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+$('#send_rating').on('click' , function(){
+    var user_rating = $('#user_rating').val();
+    var product_id = '{!!json_encode($product->id)!!}'
+
+  //  alert(product_id);
+
+     $.ajax({
+        type:'POST',
+        headers:{
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+            },
+        url:'{{route('dashboard.rating.store')}}',
+        data:{
+            "_token": "{{ csrf_token() }}",
+            rating:user_rating,
+            product_id:product_id,
+        },
+        success:function(data){
+            console.log("Success: "+data)
+            return location.reload();
+        },
+        error:function(data){
+            Swal.fire({
+            title: 'Error!',
+            text: 'You Allready Have Added a Review',
+            icon: 'error',
+            confirmButtonText: 'Close',
+            toast:true,
+            animation:true,
+            position:'top-end',
+            })
+
+        }    
+    })
+
+   
+
+
+})
+
+var $star_rating = $('.star-rating .fa');
+  
+
+$star_rating.on('click', function(e) {
+        $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+        
+       var rating =  $("#rating").val();
+       
+
+   
+
+ $.ajax({
+
+    type:'POST',
+           headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+            },
+           url:'{{route('dashboard.rating.store')}}',
+
+           data:{rating:rating,},
+
+           success:function(data){
+            // return console.log(data);
+            //   alert(data.success);
+
+           },
+
+           error:function(error){
+               console.log(error);
+           }
+
+
+ })
+
+})
+
+
+</script>
+
+
+
 @endsection

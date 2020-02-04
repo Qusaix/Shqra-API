@@ -52,7 +52,7 @@ class Post extends Model
 
     public function rating()
     {
-        return $this->belongsToMany(Rating::class);
+        return $this->hasMany(Rating::class,'product_id');
     }
 
     public function countdown()
