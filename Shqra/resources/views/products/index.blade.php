@@ -6,11 +6,11 @@
 
             <!-- Images -->
             <div class="col-lg-2 order-lg-1 order-2">
-                <ul class="image_list">
+                {{-- <ul class="image_list">
                     <li data-image="images/single_4.jpg"><img src="images/single_4.jpg" alt=""></li>
                     <li data-image="images/single_2.jpg"><img src="images/single_2.jpg" alt=""></li>
                     <li data-image="images/single_3.jpg"><img src="images/single_3.jpg" alt=""></li>
-                </ul>
+                </ul> --}}
             </div>
 
             <!-- Selected Image -->
@@ -21,7 +21,11 @@
             <!-- Description -->
             <div class="col-lg-5 order-3">
                 <div class="product_description">
+                    @isset($product_categore->Title)
                     <div class="product_category">{{$product_categore->Title}}</div>
+
+                    @endisset
+                    
                     <div class="product_name">{{$product->Title}}</div>
                     @if($rating > 0 )
                     <div class="star-rating">

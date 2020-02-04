@@ -17,7 +17,7 @@ class ProductController extends Controller
         $product_categore = Post::my_categore($id)->first();
         $product = Post::find($id);
         $rating = $product->rating->avg('rating');
-        
+       # return $product;
 
         if(auth()->user())
         {
