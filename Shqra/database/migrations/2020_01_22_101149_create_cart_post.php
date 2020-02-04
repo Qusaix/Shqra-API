@@ -15,8 +15,8 @@ class CreateCartPost extends Migration
     {
         Schema::create('cart_post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('cart_id');
-            $table->string('post_id');
+            $table->integer('cart_id');
+            $table->integer('post_id');
             $table->timestamps();
         });
     }

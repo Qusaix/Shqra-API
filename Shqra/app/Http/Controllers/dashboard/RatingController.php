@@ -15,9 +15,13 @@ class RatingController extends Controller
     public function store(Request $request)
     {
         $product = Post::find($request->product_id);
+        
+        if(!auth()->user())
+        {
+            return response()->jsone(['error'=>'You Need To Login To Add a Review (Just For Testing purposes )']);
+        }
 
         // Check if the user already have a review 
-
         if(auth()->user()->check_review($product->id) != "0")
         {
 

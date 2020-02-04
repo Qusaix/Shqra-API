@@ -20,7 +20,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
 @if(Request::is('categores')||Request::is('categores/*'))<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_styles.css')}}">@endif
 <link rel="stylesheet" type="text/css" href="{{asset('styles/shop_responsive.css')}}">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 @if(Request::is('cart'))
 <link rel="stylesheet" type="text/css" href="{{asset('styles/cart_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/cart_responsive.css')}}">
@@ -102,7 +102,7 @@
 					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
-							<div class="logo"><a href="http://127.0.0.1:8000/">OneTech</a></div>
+							<div class="logo"><a href="{{url('/')}}">OneTech</a></div>
 						</div>
 					</div>
 

@@ -175,6 +175,21 @@ $('#send_rating').on('click' , function(){
             return location.reload();
         },
         error:function(data){
+            if(data.responseJSON.message)
+            {
+                 
+            return Swal.fire({
+            title: 'Error!',
+            text: 'You need to login to add a review (just for testing purposes)',
+            icon: 'error',
+            confirmButtonText: 'Close',
+            toast:true,
+            animation:true,
+            position:'top-end',
+            })
+
+            }
+
             Swal.fire({
             title: 'Error!',
             text: 'You Allready Have Added a Review',

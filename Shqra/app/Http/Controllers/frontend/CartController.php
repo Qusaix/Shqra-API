@@ -42,14 +42,13 @@ class CartController extends Controller
         if(!$user->cart){
 
             $cart = new Cart;
-            $cart->quantity = "50";
-            $cart->price = "60";
             $cart->save();
 
        // Make Relations 
         $product->cart()->attach($cart);
-        $user->cart()->associate($cart); 
+        $user->cart()->save($cart); 
         $user->save(); 
+        $product->save();
 
        
         return back();
@@ -68,6 +67,7 @@ class CartController extends Controller
             
             // If The User Already Have Cart     
             $product->cart()->attach($cart);
+            $product->save();
 
             return back();
 
