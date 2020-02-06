@@ -52,9 +52,12 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{asset('images/mail.png')}}" alt=""></div><a href="mailto:qusaiznemat6@gmail.com">qusaiznemat6@gmail.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_menu">
+								
 								<ul class="standard_dropdown top_bar_dropdown">
+
 									<li>
 										<a href="#">English<i class="fas fa-chevron-down"></i></a>
+										
 										<ul>
 											<li><a href="#">Arabic</a></li>
 											
@@ -69,6 +72,7 @@
 										</ul>
 									</li>
 								</ul>
+								
 							</div>
 							<div class="top_bar_user">
 								@if(auth()->user())
@@ -78,6 +82,9 @@
 								<form method="POST" action="{{route('logout')}}" style="float:right; margin-top:1%;">
 								@csrf
 								<div><button type="submit" style="background:none; border:none; margin-top:-1px; width:3px"><a>Logout</a></button></div> 
+								@role('admin')
+								<div><button style="background:none; border:none; margin-top:-1px; margin-left:40px; width:3px"><a href="{{url('/dashboard')}}" >Dashboard</a></button></div> 
+								@endrole
 								</form>
 									@else
 								<div class="user_icon"><img src="{{asset('images/user.svg')}}" alt=""></div>

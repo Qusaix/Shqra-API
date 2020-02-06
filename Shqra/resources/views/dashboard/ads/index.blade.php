@@ -24,23 +24,23 @@
   {{-- Row 2 Banners  --}}
   <div class="row">
 {{-- Title  --}}
-<h1 style="widht:100; margin-left:5%;"><i class="fa fa-picture-o" aria-hidden="true"></i> Banners</h1>
+<h1 style="widht:100; margin-left:5%;"><i class="fa fa-picture-o" aria-hidden="true"></i> Banner</h1>
  
 
      {{-- Content  --}}
-    <div class="col-md-6">
+    <div class="col">
 
       {{-- AD  --}}
-        <div class="card-content">
+        <div class="card-content d-flex">
 
           @if($Ad)
 
-          <img style="width:45%; float:left;" src='{{asset('uploads/'.$Ad->image)}}' alt="A photograph of sliced kiwifruit on a while plate" class="curve">
+          <img style="width:45%; float:left; margin-left:10%; "src='{{asset('uploads/'.$Ad->image)}}' alt="A photograph of sliced kiwifruit on a while plate" class="curve">
 
           <div id="text" style="margin-left:9%">
             <label style="float:right; width:100%;"><hr/>Name: {{$Ad->title}}</label>
             <label style="float:right; width:100%;"><hr/>New Price:${{$Ad->price}} <hr/>Old Price:${{$Ad->old_price}}<hr/></label>
-            <p style="margin-bottom:10%; float:right; width:100%;"><label>Description</label><br/>{{$Ad->description}} and piojaipj joiahs;podih ;uahsd;push hoisahdaosud[h aoisdha;spo</p>
+            <p style="margin-bottom:10%; float:right; width:100%;"><label>Description</label><br/>{{$Ad->description}}</p>
 
             </div>
               @endif
@@ -53,10 +53,10 @@
     </div>
 
      {{-- Content  --}}
-     <div class="col-md-6">
+     {{-- <div class="col-md-6"> --}}
 
       {{-- AD  --}}
-        <div class="card-content">
+        {{-- <div class="card-content">
 
           @if($Ad)
 
@@ -71,51 +71,16 @@
               @endif
 
 
-        </div>
+        </div> --}}
 
 
 
-    </div>
+    {{-- </div> --}}
 
   </div>
 
 {{-- Row 3 Contdowns  --}}
 
-<div class="row">
-
-{{-- Title  --}}
-  <h1 style="widht:100; margin-left:5%;"><i class="fa fa-clock-o"></i> Contdowns</h1>
- 
- 
- 
-
-  {{-- Content  --}}
- <div class="col">
-
-   {{-- AD  --}}
-     <div class="card-content">
-        <button  type="button" class="btn btn-primary"  aria-expanded="false">
-
-          <a  class="text-light" href="{{route('dashboard.countdown.create')}}"> Create </a> 
-        
-  
-          </button>
-        @if($Ad)
-
-       <img style="width:45%; float:left;" src='{{asset('uploads/'.$Ad->image)}}' alt="A photograph of sliced kiwifruit on a while plate" class="curve">
-
-       <div id="text" style="margin-left:9%">
-         <label style="float:right; width:100%;"><hr/>Name: {{$Ad->title}}</label>
-         <label style="float:right; width:100%;"><hr/>Countdown:<div class="your-clock"></div></label>
-         </div>
-           @endif
-
-
-     </div>
-     
-
-
- </div>
 
 
 </div>
