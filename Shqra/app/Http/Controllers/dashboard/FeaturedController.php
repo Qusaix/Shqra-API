@@ -12,10 +12,10 @@ class FeaturedController extends Controller
 {
     public function index()
     {
-        $featured = Featured::get()->take(6)->sortByDesc('created_at');
+        $featureds = Featured::paginate(10);
         
 
-        return view('dashboard.featured.index', compact('featured'));
+        return view('dashboard.featured.index', compact('featureds'));
     }
 
 

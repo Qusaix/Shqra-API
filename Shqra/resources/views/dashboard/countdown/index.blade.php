@@ -7,14 +7,14 @@
            <div style="margin:1%;" class="btn-group">
   <button  type="button" class="btn btn-primary"  aria-expanded="false">
       @if($countdown)
-      <a  class="text-light" href="{{route('dashboard.ads.edit',1)}}"> Update </a>
+      <a  class="text-light" href="{{route('dashboard.countdown.edit',1)}}"> Update </a>
     @else
       <a class="text-light" href="{{route('dashboard.countdown.create')}}"> Create </a>
 
       @endif
   </button>
   
-</div>
+</div> 
              <div class="card-content">
                 <div id="circle-shape-example" >
                   @if($Ad ?? '')

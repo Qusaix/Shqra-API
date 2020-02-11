@@ -104,7 +104,7 @@
 												<div class="deals_item_price_a ml-auto">${{$date->old_price}}</div>
 											</div>
 											<div class="deals_info_line d-flex flex-row justify-content-start">
-												<div class="deals_item_name">{{$date->products->Title}}</div>
+												<div class="deals_item_name"><a href="{{route('products',$date->products->id)}}">{{$date->products->Title}}</a></div>
 												<div class="deals_item_price ml-auto">${{$date->new_price}}</div>
 											</div>
 											<div class="available">
@@ -308,7 +308,7 @@
 												<div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width:115px;" src="{{$product->image}}" alt=""></div>
 												<div class="product_content">
 													@if($product->new_price)
-													<div class="product_price discount">${{$product->old_price}}<span>${{$product->new_price}}</span></div>
+													<div class="product_price discount">${{$product->product->price}}<span>${{$product->old_price}}</span></div>
 													@else
 													<div class="product_price discount">${{$product->old_price}}</div>
 
@@ -364,7 +364,7 @@
 											<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
 												<div style="width:112px;" class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{$product->image}}" alt=""></div>
 												<div class="product_content">
-													<div class="product_price discount">${{$product->old_price}}<span>${{$product->new_price}}</span></div>
+													<div class="product_price discount">${{$product->product->price}}<span>${{$product->old_price}}</span></div>
 													<div class="product_name"><div><a href="{{route('products',$product->id)}}">{{$product->product_name}}</a></div></div>
 													<div class="product_extras">
 														
@@ -993,7 +993,7 @@
 												<div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
 													<div class="product_image d-flex flex-column align-items-center justify-content-center" style="max-width:100px;"><img src="{{$p->image}}" alt=""></div>
 													<div class="product_content">
-														<div class="product_price">${{$p->new_price}}</div>
+														<div class="product_price">${{$p->product->price}}</div>
 														<div class="product_name"><div><a href="{{route("products",$p->id)}}">{{$p->product_name}}</a></div></div>
 														<div class="product_extras">
 															{{-- <div class="product_color">
@@ -1871,10 +1871,10 @@
 												{{-- <div class="arrivals_single_category"><a href="#">Smartphones</a></div> --}}
 												<div class="arrivals_single_name_container clearfix">
 													<div class="arrivals_single_name"><a href="#">{{$p->product_name}}</a></div>
-													<div class="arrivals_single_price text-right">${{$p->new_price}}</div>
+													<div class="arrivals_single_price text-right">${{$p->product->price}}</div>
 												</div>
 												{{-- <div class="rating_r rating_r_4 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div> --}}
-												<form action="{{route('products',$p->id)}}"><button class="arrivals_single_button">Add to Cart</button></form>
+												<form method="POST" action="{{route('add_product_cart',$p->id)}}">@csrf<button type="submit" class="arrivals_single_button">Add to Cart</button></form> 
 											</div>
 											{{-- <div class="arrivals_single_fav product_fav active"><i class="fas fa-heart"></i></div> --}}
 											<ul class="arrivals_single_marks product_marks">

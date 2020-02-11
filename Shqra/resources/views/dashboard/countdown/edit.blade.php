@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.layout')
 @section('section')
-<h2 class="section-title">Create Countdown</h2>
+<h2 class="section-title">Update Countdown</h2>
 <div class="row">
     <div class="col-12" style="margin-left:3%; margin-right:3%;">
         <div class="card">
@@ -28,7 +28,7 @@
                         </ul>
                     </div>
                     <div class="card-block">
-                        <form class="form-horizontal m-t-sm" action="{{route('dashboard.countdown.store')}}" method="post" >
+                        <form class="form-horizontal m-t-sm" action="{{route('dashboard.countdown.update',$countdown->id)}}" method="post" >
                             @csrf
                             <div class="row">
                                
@@ -53,12 +53,13 @@
                                             <label for="mega-lastname">Month</label>
 
                                             <select name="month" class="form-control" id="sel1">
+                                                <option value="{{$countdown->month}}">The Chosen Month: {{$countdown->month}} </option>
                                                 <option value="January" >January</option>
                                                 <option value="February" >February</option>
                                                 <option value="March" >March</option>
                                                 <option value="April" >April</option>
                                                 <option value="May" >May</option>
-                                                <option value="June" >June</option> 
+                                                <option value="June" >June</option>
                                                 <option value="July" >July</option>
                                                 <option value="Aguset" >Aguset</option>
                                                 <option value="September" >September</option>
@@ -75,7 +76,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <label for="mega-lastname">New Price</label>
-                                            <input value="{{old('new_price')}}" class="form-control input-lg" type="text" id="mega-username" name="new_price" placeholder="Enter The New Price"  />
+                                            <input value="{{(old('new_price')) ? old('new_price') : $countdown->new_price}}" class="form-control input-lg" type="text" id="mega-username" name="new_price" placeholder="Enter The New Price"  />
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +85,7 @@
                                     <div class="form-group">
                                         <div class="col-xs-12">
                                             <label for="mega-lastname">Until Whate Day ?</label>
-                                            <input value="{{(old('day'))}}" class="form-control input-lg" type="text" id="mega-username" name="day" placeholder="Enter The Day the Deal Will End"  />
+                                            <input value="{{(old('day')) ? old('day') : $countdown->day}}" class="form-control input-lg" type="text" id="mega-username" name="day" placeholder="Enter The Day the Deal Will End"  />
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +94,7 @@
                             
                             <div class="form-group m-b-0">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-app" type="submit"><i class="ion-checkmark m-r-xs"></i>Create</button>
+                                    <button class="btn btn-app" type="submit"><i class="ion-checkmark m-r-xs"></i>Update</button>
                                 </div>
                             </div>
                         </form>
