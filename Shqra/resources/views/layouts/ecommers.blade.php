@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('styles/product_responsive.css')}}">
 <link rel="stylesheet" id="custom-css" href="{{asset('assets_d/css/custom-css.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
-@if(Request::is('categores')||Request::is('categores/*'))<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_styles.css')}}">@endif
+@if(Request::is('categores')||Request::is('categores/*')||Request::is('search'))<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_styles.css')}}">@endif
 <link rel="stylesheet" type="text/css" href="{{asset('styles/shop_responsive.css')}}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 @if(Request::is('cart'))
@@ -118,8 +118,9 @@
 						<div class="header_search">
 							<div class="header_search_content">
 								<div class="header_search_form_container">
-									<form action="#" class="header_search_form clearfix">
-										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+									<form method="POST" action="{{route('search')}}" class="header_search_form clearfix">
+										@csrf
+										<input type="search" name="search" required="required" class="header_search_input" placeholder="Search for products...">
 										<div class="custom_dropdown">
 											<div class="custom_dropdown_list">
 												<span class="custom_dropdown_placeholder clc">All Categories</span>

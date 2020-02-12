@@ -135,6 +135,11 @@ Route::namespace('frontend')->group(function(){
 
     });
 
+    #Search Routes
+    Route::prefix('search')->group(function(){
+        Route::post('/','SearchController@search')->name('search');
+    });
+
    
 
 });
