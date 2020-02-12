@@ -30,8 +30,8 @@
                                 <img class="img-avatar img-avatar-48" src="{{$featured->image}}" alt="">
                             </td>
                             <td class="font-500">{{$featured->product_name}}</td>
-                            <td>{{$featured->old_price}}</td>
-                            <td>{{$featured->new_price}}</td>
+                            <td>${{$featured->old_price}}</td>
+                            <td>${{$featured->new_price}}</td>
                             <td>
                               @if($featured->product->rating->avg('rating') == 0)
                               <a style="background:#337ab7; border-radius:3px; padding:5px; color:#fff;" >No Review Yet</a>

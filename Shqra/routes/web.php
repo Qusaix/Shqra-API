@@ -104,6 +104,13 @@ Route::namespace('dashboard')->middleware(['auth','role:admin'])->prefix('dashbo
         
     });
 
+    Route::prefix('products')->group(function(){
+        
+        // Show Products Routes
+        Route::get('/','ProductsController@index')->name('dashbaord.product');
+
+    });
+
 
 });
 

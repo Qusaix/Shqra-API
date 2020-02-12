@@ -51,9 +51,9 @@
 
                 </li>
 
-                <li class='{{ (Route::current()->getName() == 'dashboard.vendors') ? "nav-item active" : "nav-item" }}'>
+                <li class='{{ (Route::current()->getName() == 'dashbaord.product') ? "nav-item active" : "nav-item" }}'>
 
-                    <a href="{{route('dashboard.vendors')}}"><i class="fa fa-shopping-cart"></i>Products</a>
+                    <a href="{{route('dashbaord.product')}}"><i class="fa fa-shopping-cart"></i>Products</a> 
 
                 </li>
 

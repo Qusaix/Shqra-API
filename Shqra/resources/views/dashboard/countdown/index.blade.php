@@ -30,8 +30,8 @@
                             </td>
                             <td class="font-500">{{$deal->products->Title}}</td>
                             <td>{{$deal->day}}/{{$deal->month}}</td>
-                            <td>{{$deal->old_price}}</td>
-                            <td>{{$deal->new_price}}</td>
+                            <td>${{$deal->old_price}}</td>
+                            <td>${{$deal->new_price}}</td>
                             <td class="text-center">
                                 <div class="btn-group">
                                     <a href="{{route('dashboard.countdown.edit',$deal->id)}}" class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Edit Client"><i class="ion-edit"></i></a>
