@@ -98,6 +98,9 @@ Route::namespace('dashboard')->middleware(['auth','role:admin'])->prefix('dashbo
         // Create Countdown Routes
         Route::get('/create','CountdownController@create')->name('dashboard.countdown.create');
         Route::post('/store','CountdownController@store')->name('dashboard.countdown.store');
+
+        // Remove Countdown Routes
+        Route::post('/delete/{id}','CountdownController@delete')->name('dashboard.countdown.delete');
         
     });
 

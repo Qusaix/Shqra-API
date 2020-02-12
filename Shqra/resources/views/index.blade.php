@@ -107,13 +107,13 @@
 												<div class="deals_item_name"><a href="{{route('products',$date->products->id)}}">{{$date->products->Title}}</a></div>
 												<div class="deals_item_price ml-auto">${{$date->new_price}}</div>
 											</div>
-											<div class="available">
+											{{-- <div class="available">
 												<div class="available_line d-flex flex-row justify-content-start">
 													<div class="available_title">Available: <span>{{$date->available}}</span></div>
 													<div class="sold_title ml-auto">Already sold: <span>{{$date->sold}}</span></div>
 												</div>
 												<div class="available_bar"><span style="width:{{$date->sold}}%"></span></div>
-											</div>
+											</div> --}}
 											<div class="deals_timer d-flex flex-row align-items-center justify-content-start">
 												<div class="deals_timer_title_container">
 													<div class="deals_timer_title">Hurry Up</div>

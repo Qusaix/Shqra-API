@@ -22,6 +22,8 @@ class CreateCountdownsTable extends Migration
             $table->string('old_price');
             $table->string('new_price');
             $table->string('product_id')->nullable();
+            $table->softDeletes();
+
 
 
             $table->timestamps();

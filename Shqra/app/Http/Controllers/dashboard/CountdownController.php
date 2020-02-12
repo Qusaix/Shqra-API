@@ -11,9 +11,9 @@ class CountdownController extends Controller
 {
     public function index()
     {
-        $countdown = Countdown::find(1);
+        $countdowns = Countdown::paginate(10);
 
-        return view('dashboard.countdown.index',compact('countdown'));
+        return view('dashboard.countdown.index',compact('countdowns'));
     }
 
     public function create()
@@ -80,6 +80,15 @@ class CountdownController extends Controller
         
 
 
-        return back();
+        return redirect()->route('dashboard.countdown');
+    }
+
+
+    public function delete($id)
+    {
+        $countdown = Countdown::find($id);
+        $countdown->delete();
+
+        return redirect()->route('dashboard.countdown');
     }
 }

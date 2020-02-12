@@ -39,7 +39,7 @@
 
                                             <select name="product" class="form-control" id="sel1">
                                                 @foreach($products as $product)
-                                                <option value='{{$product->id}}' > {{$product->Title}} </option>
+                                                <option value='{{$product->id}}' > {{$product->Title}}:${{$product->price}} </option>
                                                 @endforeach
                                               </select>
                                         </div>

@@ -51,6 +51,12 @@
 
                 </li>
 
+                <li class='{{ (Route::current()->getName() == 'dashboard.vendors') ? "nav-item active" : "nav-item" }}'>
+
+                    <a href="{{route('dashboard.vendors')}}"><i class="fa fa-shopping-cart"></i>Products</a>
+
+                </li>
+
             </ul>
         </nav>
         <!-- End drawer navigation -->
