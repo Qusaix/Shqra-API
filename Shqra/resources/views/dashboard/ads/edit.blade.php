@@ -75,15 +75,12 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-xs-12">
-                                            <label for="mega-skills">Skills</label>
-                                            <select class="form-control" id="mega-skills" name="mega-skills" size="7" multiple>
-                            <option value="1">HTML</option>
-                            <option value="2">CSS</option>
-                            <option value="3">JavaScript</option>
-                            <option value="4">PHP</option>
-                            <option value="5">Ruby</option>
-                            <option value="6">Photoshop</option>
-                            <option value="7">Illustrator</option>
+                                            <label for="mega-skills">Products</label>
+                                            <select class="form-control" id="mega-skills" name="mega-skills">
+                                                @foreach ($products as $product)
+                                                <option value="{{$product->id}}">{{$product->Title}}:${{$product->price}}</option>
+
+                                                @endforeach
                         </select>
                                         </div>
                                     </div>

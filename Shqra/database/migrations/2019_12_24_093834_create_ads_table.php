@@ -20,6 +20,7 @@ class CreateAdsTable extends Migration
             $table->longText('price');
             $table->longText('old_price');
             $table->longText('image');
+            $table->string('product_id')->nullable();
             $table->timestamps();
         });
     }

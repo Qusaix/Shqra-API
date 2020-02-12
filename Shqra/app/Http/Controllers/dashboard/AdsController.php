@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PostRequest;
 use App\Ads;
+use App\Post;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdsController extends Controller
@@ -28,14 +29,15 @@ class AdsController extends Controller
   public function edit($id)
     {
         $Ad = Ads::find($id);
-
-        return view('dashboard.ads.edit',compact('Ad'));
+        $products = Post::get();
+        return view('dashboard.ads.edit',compact('Ad','products'));
     }
     
 
     public function update(PostRequest $request , $id )
     {
         $updateAd = Ads::find($id);
+        $product = Post::find($request->id);
 
         $updateAd->title = $request->title;
         $updateAd->description = $request->description;
@@ -43,8 +45,7 @@ class AdsController extends Controller
         $updateAd->old_price = $request->old_price;
         $updateAd->image =  Storage::disk('public')->put('Adsimags', $request->image);
 
-       
-       
+        $updateAd->product()->associate($product); 
         $updateAd->save();
 
         Alert::toast('Ad Was Updated', 'success');
@@ -61,7 +62,7 @@ class AdsController extends Controller
         $newad->price = $request->price;
         $newad->old_price = $request->old_price;
         $newad->image = Storage::get($request->image);
-        return 
+        
         $newad->save();
         
         Alert::toast('Ad Was Created', 'success');

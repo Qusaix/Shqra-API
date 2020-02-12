@@ -124,7 +124,7 @@
 										<div class="custom_dropdown">
 											<div class="custom_dropdown_list">
 												<span class="custom_dropdown_placeholder clc">All Categories</span>
-												<i class="fas fa-chevron-down"></i>
+												{{-- <i class="fas fa-chevron-down"></i> --}}
 												<ul class="custom_list clc">
 													<li><a class="clc" href="#">All Categories</a></li>
 													@foreach ($categores as $categore)

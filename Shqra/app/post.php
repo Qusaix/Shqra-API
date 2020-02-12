@@ -64,5 +64,10 @@ class Post extends Model
     {
         return $this->belongsToMany(Cart::class);
     }
+
+    public function ads()
+    {
+        return $this->hasOne(ads::class,'product_id');
+    }
     
 }

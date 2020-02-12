@@ -26,9 +26,9 @@ class Ads extends Model
         return $this->hasOne(Categores::class);
     }
 
-    public function post()
+    public function product()
     {
-        return $this->hasOne(Post::class);
+        return $this->belongsTo(Post::class,'product_id');
     }
 
 

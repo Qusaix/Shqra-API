@@ -12,9 +12,9 @@
 					<div class="col-lg-5 offset-lg-4 fill_height">
 						<div class="banner_content" style="background:#fff; padding:5%; border-radius:7px;">
 							<h1 class="banner_text">{{$ads->title}}</h1>
-							<div class="banner_price"><span>${{$ads->old_price}}</span>${{$ads->price}}</div>
+							<div class="banner_price"><span>${{$ads->old_price}}</span>${{$ads->product->price}}</div>
 							<div class="banner_product_name">{{$ads->description}}</div>
-							<div class="button banner_button"><a href="#">Shop Now</a></div>
+							<div class="button banner_button"><a href="{{route('products',$ads->product->id)}}">Shop Now</a></div>
 						</div>
 					</div>
 					@endif
