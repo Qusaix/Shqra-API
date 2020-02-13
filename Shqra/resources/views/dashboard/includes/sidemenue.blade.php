@@ -16,7 +16,8 @@
                 <li class="{{(Route::current()->getName() == 'dashboard.home') ? 'nav-item active'  : 'nav-item'}}">
                     <a href="{{route('dashboard.home')}}"><i class="ion-ios-speedometer-outline"></i> Dashboard</a>
                 </li>
-
+                @role('admin')
+                    
                 <li class='{{ (Route::current()->getName() == 'dashboard.ads') ? "nav-item active" : "nav-item" }}'>
 
                     <a href="{{route('dashboard.ads')}}"><i class="fa fa-money"></i> Ads</a>
@@ -50,6 +51,7 @@
                     <a href="{{route('dashboard.vendors')}}"><i class="fa fa-building"></i>Vendors</a>
 
                 </li>
+                @endrole
 
                 <li class='{{ (Route::current()->getName() == 'dashbaord.product') ? "nav-item active" : "nav-item" }}'>
 

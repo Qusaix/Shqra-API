@@ -23,7 +23,7 @@ Route::post('rigster','dashboardAuth\Auth@rigster_button')->name('rigster.user')
 
 
 
-Route::namespace('dashboard')->middleware(['auth','role:admin'])->prefix('dashboard')->group(function(){
+Route::namespace('dashboard')->middleware(['auth','role:admin|company'])->prefix('dashboard')->group(function(){
 
     Route::get('/','HomeController@index')->name('dashboard.home');
 
@@ -48,18 +48,18 @@ Route::namespace('dashboard')->middleware(['auth','role:admin'])->prefix('dashbo
 
     Route::prefix('featured')->group(function(){
 
-        Route::get('/','featuredController@index')->name('dashboard.featured');
+        Route::get('/','FeaturedController@index')->name('dashboard.featured');
 
         // Store Featured Routes
-        Route::get('create','featuredController@create')->name('dashboard.featured.create');
-        Route::post('store','featuredController@store')->name('dashboard.featured.store');
+        Route::get('create','FeaturedController@create')->name('dashboard.featured.create');
+        Route::post('store','FeaturedController@store')->name('dashboard.featured.store');
         
         // Update Featured Routes
-        Route::get('/{id}','featuredController@edit')->name('dashboard.featured.edit');
-        Route::post('update/{id}','featuredController@update')->name('dashboard.featured.update');
+        Route::get('/{id}','FeaturedController@edit')->name('dashboard.featured.edit');
+        Route::post('update/{id}','FeaturedController@update')->name('dashboard.featured.update');
 
         // Delete Featured Routes
-        Route::post('delete/{id}','featuredController@delete')->name('dashboard.featured.delete');
+        Route::post('delete/{id}','FeaturedController@delete')->name('dashboard.featured.delete');
 
 
 

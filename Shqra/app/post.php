@@ -69,5 +69,10 @@ class Post extends Model
     {
         return $this->hasOne(ads::class,'product_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
     
 }

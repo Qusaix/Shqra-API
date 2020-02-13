@@ -28,6 +28,7 @@ class RoleSeeder extends Seeder
 
 
         $adminRole = Role::find(1);
+        $vendorRole = Role::find(2);
 
         $admin = new user;
         $admin->first_name = 'Admin';
@@ -37,6 +38,16 @@ class RoleSeeder extends Seeder
         $admin->phone = '044578952';
         $admin->save();
         $admin->assignRole($adminRole);
+
+        $vendor = new user;
+        $vendor->first_name = "Vendor";
+        $vendor->password = bcrypt(123456);
+        $vendor->email = 'vendor@ecommers.com';
+        $vendor->zip_code = "1265";
+        $vendor->phone = "0746678645";
+        $vendor->save();
+        $vendor->assignRole($vendorRole);
+
 
 
     }

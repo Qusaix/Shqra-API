@@ -59,9 +59,9 @@ class User extends Authenticatable implements JWTSubject
     }
 
 
-    public function post()
+    public function product()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class,'user_id');
     }
 
     public function rating()
