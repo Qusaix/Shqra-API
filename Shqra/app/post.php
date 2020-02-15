@@ -22,7 +22,7 @@ class Post extends Model
 
     public function categore()
     {
-        return $this->belongsTo(Categores::class);
+        return $this->belongsTo(Categores::class , 'categores_id');
     }
 
     public static function my_categore($id)
@@ -37,7 +37,7 @@ class Post extends Model
 
     public function order()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
     }
 
     public function sales()

@@ -33,12 +33,13 @@ class Auth extends Controller
             $role = auth()->user()->getRoleNames();
 
             foreach($role as $name){
-                if($name == 'admin'){
+                if($name == 'admin' | $name == 'company' ){
                     return redirect()->route('dashboard.home');
-                    }
-                    else{
+                }
+                else
+                {
                     return redirect()->route('home');
-                    }
+                }
             }
            
         }else{

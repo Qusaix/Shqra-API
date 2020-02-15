@@ -1,10 +1,9 @@
 @extends('dashboard.layouts.layout')
 @section('section')
-<h2 class="section-title">Products</h2>
-<h3 class="section-title">Amount of Products:{{$products->total()}}</h3>
+<h2 class="section-title">Orders</h2>
+<h3 class="section-title">Amount of Orders:{{$orders->total()}}</h3>
 <div class="card">
     <div class="card-content">
-        <a type="button" href="{{route('dashboard.products.create')}}" class="btn btn-primary" style="margin-top:3%; margin-left: 3%;">Add New Product </a>
 
         <div class="container">
             <div class="table-responsive">
@@ -20,19 +19,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ( $products as $index=>$product )
+                        @foreach ( $orders as $index=>$order )
                             
                         <tr>
                             <td>{{$index+1}}</td>
                             <td class="text-center">
-                                <img class="img-avatar img-avatar-48" src="{{$product->image}}" alt="">
+                                <img class="img-avatar img-avatar-48" src="{{$order->image}}" alt="">
                             </td>
-                            <td class="font-500">{{$product->Title}}</td>
-                            <td>{{$product->description}}</td>
-                            <td>${{$product->price}}</td>
+                            <td class="font-500">{{$order->Title}}</td>
+                            <td>{{$order->description}}</td>
+                            <td>${{$order->price}}</td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <a href="{{route('dashboard.products.edit',$product->id)}}" class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Edit Client"><i class="ion-edit"></i></a>
+                                    <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Edit Client"><i class="ion-edit"></i></button>
                                     <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove Client"><i class="ion-close"></i></button>
                                 </div>
                             </td>
@@ -43,7 +42,7 @@
                        
                     </tbody>
                 </table>
-                {{$products->links()}}
+                {{$orders->links()}}
                {{-- {{$users->total()}} 	 --}}
 
             </div>

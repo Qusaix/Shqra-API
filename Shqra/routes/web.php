@@ -109,6 +109,22 @@ Route::namespace('dashboard')->middleware(['auth','role:admin|company'])->prefix
         // Show Products Routes
         Route::get('/','ProductsController@index')->name('dashbaord.product');
 
+        // Create Products Routes
+        Route::get('/create','ProductsController@create')->name('dashboard.products.create');
+        Route::post('/store','ProductsController@store')->name('dashboard.products.store');
+
+        // Update Products Routes
+        Route::get('/edit/{id}','ProductsController@edit')->name('dashboard.products.edit');
+        Route::post('/update/{id}','ProductsController@update')->name('dashboard.products.update');
+
+        
+
+    });
+
+    Route::prefix('orders')->group(function(){
+        
+        // Show Orders Routes
+        Route::get('/','OrdersController@index')->name('dashboard.orders');
     });
 
 

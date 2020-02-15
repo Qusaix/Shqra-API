@@ -22,6 +22,6 @@ class Categores extends Model
 
     public function product()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class ,'categores_id');
     }
 }

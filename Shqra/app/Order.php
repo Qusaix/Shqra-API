@@ -14,7 +14,7 @@ class Order extends Model
     * @var array
     */ 
     
-    protected $fillable = ['Product_Name','User_Name','Categorey_Name'];
+    protected $fillable = ['Product_Name',];
 
     
     public function user()
@@ -24,8 +24,8 @@ class Order extends Model
 
     public function product()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsToMany(Post::class);
     }
-
+ 
 
 }

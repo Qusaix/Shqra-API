@@ -363,6 +363,7 @@ class DatabaseSeeder extends Seeder
         $ad->price = "500";
         $ad->old_price = "1000";
         $ad->image = 'https://www.masabi.com/wp-content/uploads/2013/01/iphone-7-perspective-screen-1.png';
+        $ad->product_id = '1';
         $ad->save();
 
         $this->call([
